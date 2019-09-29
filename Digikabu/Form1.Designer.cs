@@ -30,10 +30,59 @@
         {
             this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.kl = new System.Windows.Forms.Label();
             this.klassetxt = new System.Windows.Forms.Label();
             this.un = new System.Windows.Forms.Label();
             this.schuelertxt = new System.Windows.Forms.Label();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.Termine = new System.Windows.Forms.TabPage();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.Pause = new System.Windows.Forms.Label();
+            this.Stunde10 = new System.Windows.Forms.Label();
+            this.Stunde9 = new System.Windows.Forms.Label();
+            this.Stunde8 = new System.Windows.Forms.Label();
+            this.Stunde7 = new System.Windows.Forms.Label();
+            this.Stunde6 = new System.Windows.Forms.Label();
+            this.Stunde5 = new System.Windows.Forms.Label();
+            this.Stunde4 = new System.Windows.Forms.Label();
+            this.Stunde3 = new System.Windows.Forms.Label();
+            this.Stunde2 = new System.Windows.Forms.Label();
+            this.Stunde1 = new System.Windows.Forms.Label();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.Fach10 = new System.Windows.Forms.Label();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.Fach9 = new System.Windows.Forms.Label();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.Fach8 = new System.Windows.Forms.Label();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.Fach7 = new System.Windows.Forms.Label();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.Fach6 = new System.Windows.Forms.Label();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.Fach5 = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.Fach4 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.Fach3 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.Fach2 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.Fach1 = new System.Windows.Forms.Label();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.Stundenplan = new System.Windows.Forms.TabPage();
+            this.Schulaufgabenplan = new System.Windows.Forms.TabPage();
+            this.Entschuldigung = new System.Windows.Forms.TabPage();
+            this.Fehlzeiten = new System.Windows.Forms.TabPage();
+            this.stundenw = new System.Windows.Forms.TextBox();
+            this.ganz = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.Einstellungen = new System.Windows.Forms.TabPage();
+            this.label4 = new System.Windows.Forms.Label();
+            this.email2 = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.email1 = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.login = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -42,75 +91,48 @@
             this.usernamebox = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.logout = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.Termine = new System.Windows.Forms.TabPage();
-            this.Stundenplan = new System.Windows.Forms.TabPage();
-            this.Schulaufgabenplan = new System.Windows.Forms.TabPage();
-            this.Entschuldigung = new System.Windows.Forms.TabPage();
-            this.Fehlzeiten = new System.Windows.Forms.TabPage();
-            this.Einstellungen = new System.Windows.Forms.TabPage();
-            this.email1 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.email2 = new System.Windows.Forms.TextBox();
             this.Stunde = new System.Windows.Forms.Timer(this.components);
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.ganz = new System.Windows.Forms.TextBox();
-            this.stundenw = new System.Windows.Forms.TextBox();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.panel10 = new System.Windows.Forms.Panel();
-            this.Stunde1 = new System.Windows.Forms.Label();
-            this.Stunde2 = new System.Windows.Forms.Label();
-            this.Stunde3 = new System.Windows.Forms.Label();
-            this.Stunde4 = new System.Windows.Forms.Label();
-            this.Stunde5 = new System.Windows.Forms.Label();
-            this.Stunde6 = new System.Windows.Forms.Label();
-            this.Stunde7 = new System.Windows.Forms.Label();
-            this.Stunde8 = new System.Windows.Forms.Label();
-            this.Stunde9 = new System.Windows.Forms.Label();
-            this.Stunde10 = new System.Windows.Forms.Label();
-            this.Pause = new System.Windows.Forms.Label();
-            this.Fach1 = new System.Windows.Forms.Label();
-            this.Fach2 = new System.Windows.Forms.Label();
-            this.Fach3 = new System.Windows.Forms.Label();
-            this.Fach4 = new System.Windows.Forms.Label();
-            this.Fach5 = new System.Windows.Forms.Label();
-            this.Fach6 = new System.Windows.Forms.Label();
-            this.Fach7 = new System.Windows.Forms.Label();
-            this.Fach8 = new System.Windows.Forms.Label();
-            this.Fach9 = new System.Windows.Forms.Label();
-            this.Fach10 = new System.Windows.Forms.Label();
             this.Credits = new System.Windows.Forms.Button();
+            this.Montag = new System.Windows.Forms.GroupBox();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.groupBox9 = new System.Windows.Forms.GroupBox();
+            this.groupBox10 = new System.Windows.Forms.GroupBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.montagdatum = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.freitagdatum = new System.Windows.Forms.Label();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.montaglist = new System.Windows.Forms.ListBox();
+            this.dienstaglist = new System.Windows.Forms.ListBox();
+            this.mittwochlist = new System.Windows.Forms.ListBox();
+            this.donnerstaglist = new System.Windows.Forms.ListBox();
+            this.freitaglist = new System.Windows.Forms.ListBox();
             this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.Termine.SuspendLayout();
+            this.groupBox5.SuspendLayout();
+            this.panel10.SuspendLayout();
+            this.panel9.SuspendLayout();
+            this.panel8.SuspendLayout();
+            this.panel7.SuspendLayout();
+            this.panel6.SuspendLayout();
+            this.panel5.SuspendLayout();
+            this.panel4.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            this.Stundenplan.SuspendLayout();
             this.Fehlzeiten.SuspendLayout();
             this.Einstellungen.SuspendLayout();
-            this.groupBox5.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.panel3.SuspendLayout();
-            this.panel4.SuspendLayout();
-            this.panel5.SuspendLayout();
-            this.panel6.SuspendLayout();
-            this.panel7.SuspendLayout();
-            this.panel8.SuspendLayout();
-            this.panel9.SuspendLayout();
-            this.panel10.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.Montag.SuspendLayout();
+            this.groupBox7.SuspendLayout();
+            this.groupBox8.SuspendLayout();
+            this.groupBox9.SuspendLayout();
+            this.groupBox10.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -123,15 +145,34 @@
             this.groupBox1.Controls.Add(this.tabControl1);
             this.groupBox1.Location = new System.Drawing.Point(161, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(467, 406);
+            this.groupBox1.Size = new System.Drawing.Size(552, 406);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Digikabu";
             // 
+            // comboBox1
+            // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.Enabled = false;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Termine",
+            "Stundenplan",
+            "Schulaufgabenplan",
+            "Entschuldigung",
+            "Fehlzeiten",
+            "Einstellungen"});
+            this.comboBox1.Location = new System.Drawing.Point(11, 41);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(535, 21);
+            this.comboBox1.TabIndex = 4;
+            this.comboBox1.Visible = false;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.ComboBox1_SelectedIndexChanged);
+            // 
             // kl
             // 
             this.kl.AutoSize = true;
-            this.kl.Location = new System.Drawing.Point(408, 18);
+            this.kl.Location = new System.Drawing.Point(501, 18);
             this.kl.Name = "kl";
             this.kl.Size = new System.Drawing.Size(45, 13);
             this.kl.TabIndex = 3;
@@ -141,7 +182,7 @@
             // klassetxt
             // 
             this.klassetxt.AutoSize = true;
-            this.klassetxt.Location = new System.Drawing.Point(371, 18);
+            this.klassetxt.Location = new System.Drawing.Point(464, 18);
             this.klassetxt.Name = "klassetxt";
             this.klassetxt.Size = new System.Drawing.Size(41, 13);
             this.klassetxt.TabIndex = 2;
@@ -167,6 +208,491 @@
             this.schuelertxt.TabIndex = 0;
             this.schuelertxt.Text = "Schüler:";
             this.schuelertxt.Visible = false;
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Appearance = System.Windows.Forms.TabAppearance.FlatButtons;
+            this.tabControl1.Controls.Add(this.Termine);
+            this.tabControl1.Controls.Add(this.Stundenplan);
+            this.tabControl1.Controls.Add(this.Schulaufgabenplan);
+            this.tabControl1.Controls.Add(this.Entschuldigung);
+            this.tabControl1.Controls.Add(this.Fehlzeiten);
+            this.tabControl1.Controls.Add(this.Einstellungen);
+            this.tabControl1.ImeMode = System.Windows.Forms.ImeMode.Off;
+            this.tabControl1.Location = new System.Drawing.Point(11, 41);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(535, 363);
+            this.tabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
+            this.tabControl1.TabIndex = 5;
+            this.tabControl1.Visible = false;
+            // 
+            // Termine
+            // 
+            this.Termine.Controls.Add(this.groupBox5);
+            this.Termine.Controls.Add(this.groupBox4);
+            this.Termine.Location = new System.Drawing.Point(4, 25);
+            this.Termine.Name = "Termine";
+            this.Termine.Padding = new System.Windows.Forms.Padding(3);
+            this.Termine.Size = new System.Drawing.Size(527, 334);
+            this.Termine.TabIndex = 0;
+            this.Termine.Text = "tabPage1";
+            this.Termine.UseVisualStyleBackColor = true;
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.Pause);
+            this.groupBox5.Controls.Add(this.Stunde10);
+            this.groupBox5.Controls.Add(this.Stunde9);
+            this.groupBox5.Controls.Add(this.Stunde8);
+            this.groupBox5.Controls.Add(this.Stunde7);
+            this.groupBox5.Controls.Add(this.Stunde6);
+            this.groupBox5.Controls.Add(this.Stunde5);
+            this.groupBox5.Controls.Add(this.Stunde4);
+            this.groupBox5.Controls.Add(this.Stunde3);
+            this.groupBox5.Controls.Add(this.Stunde2);
+            this.groupBox5.Controls.Add(this.Stunde1);
+            this.groupBox5.Controls.Add(this.panel10);
+            this.groupBox5.Controls.Add(this.panel9);
+            this.groupBox5.Controls.Add(this.panel8);
+            this.groupBox5.Controls.Add(this.panel7);
+            this.groupBox5.Controls.Add(this.panel6);
+            this.groupBox5.Controls.Add(this.panel5);
+            this.groupBox5.Controls.Add(this.panel4);
+            this.groupBox5.Controls.Add(this.panel3);
+            this.groupBox5.Controls.Add(this.panel2);
+            this.groupBox5.Controls.Add(this.panel1);
+            this.groupBox5.Location = new System.Drawing.Point(7, 3);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(199, 327);
+            this.groupBox5.TabIndex = 1;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Stundenplan";
+            // 
+            // Pause
+            // 
+            this.Pause.AutoSize = true;
+            this.Pause.BackColor = System.Drawing.Color.Transparent;
+            this.Pause.Location = new System.Drawing.Point(55, 78);
+            this.Pause.Name = "Pause";
+            this.Pause.Size = new System.Drawing.Size(109, 13);
+            this.Pause.TabIndex = 12;
+            this.Pause.Text = "Pause - 10:00 - 10:15";
+            // 
+            // Stunde10
+            // 
+            this.Stunde10.AutoSize = true;
+            this.Stunde10.BackColor = System.Drawing.Color.Transparent;
+            this.Stunde10.Location = new System.Drawing.Point(5, 302);
+            this.Stunde10.Name = "Stunde10";
+            this.Stunde10.Size = new System.Drawing.Size(88, 13);
+            this.Stunde10.TabIndex = 11;
+            this.Stunde10.Text = "10. 15:30 - 16:15";
+            // 
+            // Stunde9
+            // 
+            this.Stunde9.AutoSize = true;
+            this.Stunde9.BackColor = System.Drawing.Color.Transparent;
+            this.Stunde9.Location = new System.Drawing.Point(11, 275);
+            this.Stunde9.Name = "Stunde9";
+            this.Stunde9.Size = new System.Drawing.Size(82, 13);
+            this.Stunde9.TabIndex = 10;
+            this.Stunde9.Text = "9. 14:45 - 15:30";
+            // 
+            // Stunde8
+            // 
+            this.Stunde8.AutoSize = true;
+            this.Stunde8.BackColor = System.Drawing.Color.Transparent;
+            this.Stunde8.Location = new System.Drawing.Point(11, 245);
+            this.Stunde8.Name = "Stunde8";
+            this.Stunde8.Size = new System.Drawing.Size(82, 13);
+            this.Stunde8.TabIndex = 9;
+            this.Stunde8.Text = "8. 14:00 - 14:45";
+            // 
+            // Stunde7
+            // 
+            this.Stunde7.AutoSize = true;
+            this.Stunde7.BackColor = System.Drawing.Color.Transparent;
+            this.Stunde7.Location = new System.Drawing.Point(11, 217);
+            this.Stunde7.Name = "Stunde7";
+            this.Stunde7.Size = new System.Drawing.Size(82, 13);
+            this.Stunde7.TabIndex = 8;
+            this.Stunde7.Text = "7. 13:15 - 14:00";
+            // 
+            // Stunde6
+            // 
+            this.Stunde6.AutoSize = true;
+            this.Stunde6.BackColor = System.Drawing.Color.Transparent;
+            this.Stunde6.Location = new System.Drawing.Point(11, 187);
+            this.Stunde6.Name = "Stunde6";
+            this.Stunde6.Size = new System.Drawing.Size(82, 13);
+            this.Stunde6.TabIndex = 7;
+            this.Stunde6.Text = "6. 12:30 - 13:15";
+            // 
+            // Stunde5
+            // 
+            this.Stunde5.AutoSize = true;
+            this.Stunde5.BackColor = System.Drawing.Color.Transparent;
+            this.Stunde5.Location = new System.Drawing.Point(11, 159);
+            this.Stunde5.Name = "Stunde5";
+            this.Stunde5.Size = new System.Drawing.Size(82, 13);
+            this.Stunde5.TabIndex = 6;
+            this.Stunde5.Text = "5. 11:45 - 12:30";
+            // 
+            // Stunde4
+            // 
+            this.Stunde4.AutoSize = true;
+            this.Stunde4.BackColor = System.Drawing.Color.Transparent;
+            this.Stunde4.Location = new System.Drawing.Point(11, 130);
+            this.Stunde4.Name = "Stunde4";
+            this.Stunde4.Size = new System.Drawing.Size(82, 13);
+            this.Stunde4.TabIndex = 5;
+            this.Stunde4.Text = "4. 11:00 - 11:45";
+            // 
+            // Stunde3
+            // 
+            this.Stunde3.AutoSize = true;
+            this.Stunde3.BackColor = System.Drawing.Color.Transparent;
+            this.Stunde3.Location = new System.Drawing.Point(12, 102);
+            this.Stunde3.Name = "Stunde3";
+            this.Stunde3.Size = new System.Drawing.Size(82, 13);
+            this.Stunde3.TabIndex = 4;
+            this.Stunde3.Text = "3. 10:15 - 11:00";
+            // 
+            // Stunde2
+            // 
+            this.Stunde2.AutoSize = true;
+            this.Stunde2.BackColor = System.Drawing.Color.Transparent;
+            this.Stunde2.Location = new System.Drawing.Point(13, 53);
+            this.Stunde2.Name = "Stunde2";
+            this.Stunde2.Size = new System.Drawing.Size(76, 13);
+            this.Stunde2.TabIndex = 3;
+            this.Stunde2.Text = "2. 9:15 - 10:00";
+            // 
+            // Stunde1
+            // 
+            this.Stunde1.AutoSize = true;
+            this.Stunde1.BackColor = System.Drawing.Color.Transparent;
+            this.Stunde1.Location = new System.Drawing.Point(13, 25);
+            this.Stunde1.Name = "Stunde1";
+            this.Stunde1.Size = new System.Drawing.Size(70, 13);
+            this.Stunde1.TabIndex = 2;
+            this.Stunde1.Text = "1. 8:30 - 9:15";
+            // 
+            // panel10
+            // 
+            this.panel10.Controls.Add(this.Fach10);
+            this.panel10.Location = new System.Drawing.Point(6, 298);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(187, 23);
+            this.panel10.TabIndex = 1;
+            // 
+            // Fach10
+            // 
+            this.Fach10.AutoSize = true;
+            this.Fach10.Location = new System.Drawing.Point(94, 5);
+            this.Fach10.Name = "Fach10";
+            this.Fach10.Size = new System.Drawing.Size(0, 13);
+            this.Fach10.TabIndex = 2;
+            this.Fach10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // panel9
+            // 
+            this.panel9.Controls.Add(this.Fach9);
+            this.panel9.Location = new System.Drawing.Point(8, 270);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(185, 23);
+            this.panel9.TabIndex = 1;
+            // 
+            // Fach9
+            // 
+            this.Fach9.AutoSize = true;
+            this.Fach9.Location = new System.Drawing.Point(94, 4);
+            this.Fach9.Name = "Fach9";
+            this.Fach9.Size = new System.Drawing.Size(0, 13);
+            this.Fach9.TabIndex = 2;
+            this.Fach9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // panel8
+            // 
+            this.panel8.Controls.Add(this.Fach8);
+            this.panel8.Location = new System.Drawing.Point(8, 241);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(185, 23);
+            this.panel8.TabIndex = 1;
+            // 
+            // Fach8
+            // 
+            this.Fach8.AutoSize = true;
+            this.Fach8.Location = new System.Drawing.Point(94, 4);
+            this.Fach8.Name = "Fach8";
+            this.Fach8.Size = new System.Drawing.Size(0, 13);
+            this.Fach8.TabIndex = 2;
+            this.Fach8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // panel7
+            // 
+            this.panel7.Controls.Add(this.Fach7);
+            this.panel7.Location = new System.Drawing.Point(8, 213);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(185, 23);
+            this.panel7.TabIndex = 1;
+            // 
+            // Fach7
+            // 
+            this.Fach7.AutoSize = true;
+            this.Fach7.Location = new System.Drawing.Point(94, 4);
+            this.Fach7.Name = "Fach7";
+            this.Fach7.Size = new System.Drawing.Size(0, 13);
+            this.Fach7.TabIndex = 2;
+            this.Fach7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // panel6
+            // 
+            this.panel6.Controls.Add(this.Fach6);
+            this.panel6.Location = new System.Drawing.Point(6, 183);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(187, 23);
+            this.panel6.TabIndex = 1;
+            // 
+            // Fach6
+            // 
+            this.Fach6.AutoSize = true;
+            this.Fach6.Location = new System.Drawing.Point(94, 4);
+            this.Fach6.Name = "Fach6";
+            this.Fach6.Size = new System.Drawing.Size(0, 13);
+            this.Fach6.TabIndex = 2;
+            this.Fach6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.Fach5);
+            this.panel5.Location = new System.Drawing.Point(8, 154);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(185, 23);
+            this.panel5.TabIndex = 1;
+            // 
+            // Fach5
+            // 
+            this.Fach5.AutoSize = true;
+            this.Fach5.Location = new System.Drawing.Point(94, 5);
+            this.Fach5.Name = "Fach5";
+            this.Fach5.Size = new System.Drawing.Size(0, 13);
+            this.Fach5.TabIndex = 2;
+            this.Fach5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.Fach4);
+            this.panel4.Location = new System.Drawing.Point(8, 125);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(185, 23);
+            this.panel4.TabIndex = 1;
+            // 
+            // Fach4
+            // 
+            this.Fach4.AutoSize = true;
+            this.Fach4.Location = new System.Drawing.Point(94, 4);
+            this.Fach4.Name = "Fach4";
+            this.Fach4.Size = new System.Drawing.Size(0, 13);
+            this.Fach4.TabIndex = 2;
+            this.Fach4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.Fach3);
+            this.panel3.Location = new System.Drawing.Point(8, 97);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(185, 23);
+            this.panel3.TabIndex = 1;
+            // 
+            // Fach3
+            // 
+            this.Fach3.AutoSize = true;
+            this.Fach3.Location = new System.Drawing.Point(94, 5);
+            this.Fach3.Name = "Fach3";
+            this.Fach3.Size = new System.Drawing.Size(0, 13);
+            this.Fach3.TabIndex = 1;
+            this.Fach3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.Fach2);
+            this.panel2.Location = new System.Drawing.Point(8, 49);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(185, 23);
+            this.panel2.TabIndex = 1;
+            // 
+            // Fach2
+            // 
+            this.Fach2.AutoSize = true;
+            this.Fach2.Location = new System.Drawing.Point(94, 5);
+            this.Fach2.Name = "Fach2";
+            this.Fach2.Size = new System.Drawing.Size(0, 13);
+            this.Fach2.TabIndex = 1;
+            this.Fach2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.Fach1);
+            this.panel1.Location = new System.Drawing.Point(8, 20);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(185, 23);
+            this.panel1.TabIndex = 0;
+            // 
+            // Fach1
+            // 
+            this.Fach1.AutoSize = true;
+            this.Fach1.Location = new System.Drawing.Point(94, 5);
+            this.Fach1.Name = "Fach1";
+            this.Fach1.Size = new System.Drawing.Size(0, 13);
+            this.Fach1.TabIndex = 0;
+            this.Fach1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.listBox1);
+            this.groupBox4.Location = new System.Drawing.Point(212, 3);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(309, 327);
+            this.groupBox4.TabIndex = 0;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Termine";
+            // 
+            // Stundenplan
+            // 
+            this.Stundenplan.Controls.Add(this.freitagdatum);
+            this.Stundenplan.Controls.Add(this.label9);
+            this.Stundenplan.Controls.Add(this.montagdatum);
+            this.Stundenplan.Controls.Add(this.label8);
+            this.Stundenplan.Controls.Add(this.groupBox10);
+            this.Stundenplan.Controls.Add(this.groupBox9);
+            this.Stundenplan.Controls.Add(this.groupBox8);
+            this.Stundenplan.Controls.Add(this.groupBox7);
+            this.Stundenplan.Controls.Add(this.Montag);
+            this.Stundenplan.Location = new System.Drawing.Point(4, 25);
+            this.Stundenplan.Name = "Stundenplan";
+            this.Stundenplan.Padding = new System.Windows.Forms.Padding(3);
+            this.Stundenplan.Size = new System.Drawing.Size(527, 334);
+            this.Stundenplan.TabIndex = 1;
+            this.Stundenplan.Text = "tabPage2";
+            this.Stundenplan.UseVisualStyleBackColor = true;
+            // 
+            // Schulaufgabenplan
+            // 
+            this.Schulaufgabenplan.Location = new System.Drawing.Point(4, 25);
+            this.Schulaufgabenplan.Name = "Schulaufgabenplan";
+            this.Schulaufgabenplan.Size = new System.Drawing.Size(434, 334);
+            this.Schulaufgabenplan.TabIndex = 2;
+            this.Schulaufgabenplan.Text = "tabPage1";
+            this.Schulaufgabenplan.UseVisualStyleBackColor = true;
+            // 
+            // Entschuldigung
+            // 
+            this.Entschuldigung.Location = new System.Drawing.Point(4, 25);
+            this.Entschuldigung.Name = "Entschuldigung";
+            this.Entschuldigung.Size = new System.Drawing.Size(434, 334);
+            this.Entschuldigung.TabIndex = 3;
+            this.Entschuldigung.Text = "tabPage1";
+            this.Entschuldigung.UseVisualStyleBackColor = true;
+            // 
+            // Fehlzeiten
+            // 
+            this.Fehlzeiten.Controls.Add(this.stundenw);
+            this.Fehlzeiten.Controls.Add(this.ganz);
+            this.Fehlzeiten.Controls.Add(this.label7);
+            this.Fehlzeiten.Controls.Add(this.label6);
+            this.Fehlzeiten.Location = new System.Drawing.Point(4, 25);
+            this.Fehlzeiten.Name = "Fehlzeiten";
+            this.Fehlzeiten.Size = new System.Drawing.Size(434, 334);
+            this.Fehlzeiten.TabIndex = 4;
+            this.Fehlzeiten.Text = "tabPage1";
+            this.Fehlzeiten.UseVisualStyleBackColor = true;
+            // 
+            // stundenw
+            // 
+            this.stundenw.Enabled = false;
+            this.stundenw.Location = new System.Drawing.Point(107, 32);
+            this.stundenw.Name = "stundenw";
+            this.stundenw.Size = new System.Drawing.Size(21, 20);
+            this.stundenw.TabIndex = 9;
+            this.stundenw.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // ganz
+            // 
+            this.ganz.Enabled = false;
+            this.ganz.Location = new System.Drawing.Point(80, 9);
+            this.ganz.Name = "ganz";
+            this.ganz.Size = new System.Drawing.Size(21, 20);
+            this.ganz.TabIndex = 8;
+            this.ganz.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(12, 35);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(91, 13);
+            this.label7.TabIndex = 1;
+            this.label7.Text = "Stundenweiße:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(12, 11);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(64, 13);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "Ganztags:";
+            // 
+            // Einstellungen
+            // 
+            this.Einstellungen.Controls.Add(this.label4);
+            this.Einstellungen.Controls.Add(this.email2);
+            this.Einstellungen.Controls.Add(this.label3);
+            this.Einstellungen.Controls.Add(this.email1);
+            this.Einstellungen.Location = new System.Drawing.Point(4, 25);
+            this.Einstellungen.Name = "Einstellungen";
+            this.Einstellungen.Size = new System.Drawing.Size(633, 334);
+            this.Einstellungen.TabIndex = 5;
+            this.Einstellungen.Text = "tabPage1";
+            this.Einstellungen.UseVisualStyleBackColor = true;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(16, 58);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(48, 13);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "2. E-Mail";
+            // 
+            // email2
+            // 
+            this.email2.Enabled = false;
+            this.email2.Location = new System.Drawing.Point(16, 77);
+            this.email2.Name = "email2";
+            this.email2.Size = new System.Drawing.Size(381, 20);
+            this.email2.TabIndex = 2;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(16, 9);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(48, 13);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "1. E-Mail";
+            // 
+            // email1
+            // 
+            this.email1.Enabled = false;
+            this.email1.Location = new System.Drawing.Point(16, 28);
+            this.email1.Name = "email1";
+            this.email1.Size = new System.Drawing.Size(381, 20);
+            this.email1.TabIndex = 0;
             // 
             // groupBox2
             // 
@@ -246,505 +772,11 @@
             this.logout.UseVisualStyleBackColor = true;
             this.logout.Click += new System.EventHandler(this.Button2_Click);
             // 
-            // comboBox1
-            // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.Enabled = false;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Termine",
-            "Stundenplan",
-            "Schulaufgabenplan",
-            "Entschuldigung",
-            "Fehlzeiten",
-            "Einstellungen"});
-            this.comboBox1.Location = new System.Drawing.Point(11, 41);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(442, 21);
-            this.comboBox1.TabIndex = 4;
-            this.comboBox1.Visible = false;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.ComboBox1_SelectedIndexChanged);
-            // 
-            // tabControl1
-            // 
-            this.tabControl1.Appearance = System.Windows.Forms.TabAppearance.FlatButtons;
-            this.tabControl1.Controls.Add(this.Termine);
-            this.tabControl1.Controls.Add(this.Stundenplan);
-            this.tabControl1.Controls.Add(this.Schulaufgabenplan);
-            this.tabControl1.Controls.Add(this.Entschuldigung);
-            this.tabControl1.Controls.Add(this.Fehlzeiten);
-            this.tabControl1.Controls.Add(this.Einstellungen);
-            this.tabControl1.ImeMode = System.Windows.Forms.ImeMode.Off;
-            this.tabControl1.Location = new System.Drawing.Point(11, 41);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(442, 363);
-            this.tabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
-            this.tabControl1.TabIndex = 5;
-            this.tabControl1.Visible = false;
-            // 
-            // Termine
-            // 
-            this.Termine.Controls.Add(this.groupBox5);
-            this.Termine.Controls.Add(this.groupBox4);
-            this.Termine.Location = new System.Drawing.Point(4, 25);
-            this.Termine.Name = "Termine";
-            this.Termine.Padding = new System.Windows.Forms.Padding(3);
-            this.Termine.Size = new System.Drawing.Size(434, 334);
-            this.Termine.TabIndex = 0;
-            this.Termine.Text = "tabPage1";
-            this.Termine.UseVisualStyleBackColor = true;
-            // 
-            // Stundenplan
-            // 
-            this.Stundenplan.Location = new System.Drawing.Point(4, 25);
-            this.Stundenplan.Name = "Stundenplan";
-            this.Stundenplan.Padding = new System.Windows.Forms.Padding(3);
-            this.Stundenplan.Size = new System.Drawing.Size(434, 236);
-            this.Stundenplan.TabIndex = 1;
-            this.Stundenplan.Text = "tabPage2";
-            this.Stundenplan.UseVisualStyleBackColor = true;
-            // 
-            // Schulaufgabenplan
-            // 
-            this.Schulaufgabenplan.Location = new System.Drawing.Point(4, 25);
-            this.Schulaufgabenplan.Name = "Schulaufgabenplan";
-            this.Schulaufgabenplan.Size = new System.Drawing.Size(434, 236);
-            this.Schulaufgabenplan.TabIndex = 2;
-            this.Schulaufgabenplan.Text = "tabPage1";
-            this.Schulaufgabenplan.UseVisualStyleBackColor = true;
-            // 
-            // Entschuldigung
-            // 
-            this.Entschuldigung.Location = new System.Drawing.Point(4, 25);
-            this.Entschuldigung.Name = "Entschuldigung";
-            this.Entschuldigung.Size = new System.Drawing.Size(434, 236);
-            this.Entschuldigung.TabIndex = 3;
-            this.Entschuldigung.Text = "tabPage1";
-            this.Entschuldigung.UseVisualStyleBackColor = true;
-            // 
-            // Fehlzeiten
-            // 
-            this.Fehlzeiten.Controls.Add(this.stundenw);
-            this.Fehlzeiten.Controls.Add(this.ganz);
-            this.Fehlzeiten.Controls.Add(this.label7);
-            this.Fehlzeiten.Controls.Add(this.label6);
-            this.Fehlzeiten.Location = new System.Drawing.Point(4, 25);
-            this.Fehlzeiten.Name = "Fehlzeiten";
-            this.Fehlzeiten.Size = new System.Drawing.Size(434, 340);
-            this.Fehlzeiten.TabIndex = 4;
-            this.Fehlzeiten.Text = "tabPage1";
-            this.Fehlzeiten.UseVisualStyleBackColor = true;
-            // 
-            // Einstellungen
-            // 
-            this.Einstellungen.Controls.Add(this.label4);
-            this.Einstellungen.Controls.Add(this.email2);
-            this.Einstellungen.Controls.Add(this.label3);
-            this.Einstellungen.Controls.Add(this.email1);
-            this.Einstellungen.Location = new System.Drawing.Point(4, 25);
-            this.Einstellungen.Name = "Einstellungen";
-            this.Einstellungen.Size = new System.Drawing.Size(434, 236);
-            this.Einstellungen.TabIndex = 5;
-            this.Einstellungen.Text = "tabPage1";
-            this.Einstellungen.UseVisualStyleBackColor = true;
-            // 
-            // email1
-            // 
-            this.email1.Enabled = false;
-            this.email1.Location = new System.Drawing.Point(16, 28);
-            this.email1.Name = "email1";
-            this.email1.Size = new System.Drawing.Size(381, 20);
-            this.email1.TabIndex = 0;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(16, 9);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(48, 13);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "1. E-Mail";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(16, 58);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(48, 13);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "2. E-Mail";
-            // 
-            // email2
-            // 
-            this.email2.Enabled = false;
-            this.email2.Location = new System.Drawing.Point(16, 77);
-            this.email2.Name = "email2";
-            this.email2.Size = new System.Drawing.Size(381, 20);
-            this.email2.TabIndex = 2;
-            // 
             // Stunde
             // 
             this.Stunde.Enabled = true;
             this.Stunde.Interval = 1000;
             this.Stunde.Tick += new System.EventHandler(this.Stunde_Tick);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(12, 11);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(64, 13);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "Ganztags:";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(12, 35);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(91, 13);
-            this.label7.TabIndex = 1;
-            this.label7.Text = "Stundenweiße:";
-            // 
-            // ganz
-            // 
-            this.ganz.Enabled = false;
-            this.ganz.Location = new System.Drawing.Point(80, 9);
-            this.ganz.Name = "ganz";
-            this.ganz.Size = new System.Drawing.Size(21, 20);
-            this.ganz.TabIndex = 8;
-            this.ganz.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // stundenw
-            // 
-            this.stundenw.Enabled = false;
-            this.stundenw.Location = new System.Drawing.Point(107, 32);
-            this.stundenw.Name = "stundenw";
-            this.stundenw.Size = new System.Drawing.Size(21, 20);
-            this.stundenw.TabIndex = 9;
-            this.stundenw.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Location = new System.Drawing.Point(212, 3);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(216, 327);
-            this.groupBox4.TabIndex = 0;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Termine";
-            // 
-            // groupBox5
-            // 
-            this.groupBox5.Controls.Add(this.Pause);
-            this.groupBox5.Controls.Add(this.Stunde10);
-            this.groupBox5.Controls.Add(this.Stunde9);
-            this.groupBox5.Controls.Add(this.Stunde8);
-            this.groupBox5.Controls.Add(this.Stunde7);
-            this.groupBox5.Controls.Add(this.Stunde6);
-            this.groupBox5.Controls.Add(this.Stunde5);
-            this.groupBox5.Controls.Add(this.Stunde4);
-            this.groupBox5.Controls.Add(this.Stunde3);
-            this.groupBox5.Controls.Add(this.Stunde2);
-            this.groupBox5.Controls.Add(this.Stunde1);
-            this.groupBox5.Controls.Add(this.panel10);
-            this.groupBox5.Controls.Add(this.panel9);
-            this.groupBox5.Controls.Add(this.panel8);
-            this.groupBox5.Controls.Add(this.panel7);
-            this.groupBox5.Controls.Add(this.panel6);
-            this.groupBox5.Controls.Add(this.panel5);
-            this.groupBox5.Controls.Add(this.panel4);
-            this.groupBox5.Controls.Add(this.panel3);
-            this.groupBox5.Controls.Add(this.panel2);
-            this.groupBox5.Controls.Add(this.panel1);
-            this.groupBox5.Location = new System.Drawing.Point(7, 3);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(199, 327);
-            this.groupBox5.TabIndex = 1;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Stundenplan";
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.Fach1);
-            this.panel1.Location = new System.Drawing.Point(8, 20);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(185, 23);
-            this.panel1.TabIndex = 0;
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.Fach2);
-            this.panel2.Location = new System.Drawing.Point(8, 49);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(185, 23);
-            this.panel2.TabIndex = 1;
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.Fach3);
-            this.panel3.Location = new System.Drawing.Point(8, 97);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(185, 23);
-            this.panel3.TabIndex = 1;
-            // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.Fach4);
-            this.panel4.Location = new System.Drawing.Point(8, 125);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(185, 23);
-            this.panel4.TabIndex = 1;
-            // 
-            // panel5
-            // 
-            this.panel5.Controls.Add(this.Fach5);
-            this.panel5.Location = new System.Drawing.Point(8, 154);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(185, 23);
-            this.panel5.TabIndex = 1;
-            // 
-            // panel6
-            // 
-            this.panel6.Controls.Add(this.Fach6);
-            this.panel6.Location = new System.Drawing.Point(6, 183);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(187, 23);
-            this.panel6.TabIndex = 1;
-            // 
-            // panel7
-            // 
-            this.panel7.Controls.Add(this.Fach7);
-            this.panel7.Location = new System.Drawing.Point(8, 213);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(185, 23);
-            this.panel7.TabIndex = 1;
-            // 
-            // panel8
-            // 
-            this.panel8.Controls.Add(this.Fach8);
-            this.panel8.Location = new System.Drawing.Point(8, 241);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(185, 23);
-            this.panel8.TabIndex = 1;
-            // 
-            // panel9
-            // 
-            this.panel9.Controls.Add(this.Fach9);
-            this.panel9.Location = new System.Drawing.Point(8, 270);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(185, 23);
-            this.panel9.TabIndex = 1;
-            // 
-            // panel10
-            // 
-            this.panel10.Controls.Add(this.Fach10);
-            this.panel10.Location = new System.Drawing.Point(6, 298);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(187, 23);
-            this.panel10.TabIndex = 1;
-            // 
-            // Stunde1
-            // 
-            this.Stunde1.AutoSize = true;
-            this.Stunde1.BackColor = System.Drawing.Color.Transparent;
-            this.Stunde1.Location = new System.Drawing.Point(13, 25);
-            this.Stunde1.Name = "Stunde1";
-            this.Stunde1.Size = new System.Drawing.Size(70, 13);
-            this.Stunde1.TabIndex = 2;
-            this.Stunde1.Text = "1. 8:30 - 9:15";
-            // 
-            // Stunde2
-            // 
-            this.Stunde2.AutoSize = true;
-            this.Stunde2.BackColor = System.Drawing.Color.Transparent;
-            this.Stunde2.Location = new System.Drawing.Point(13, 53);
-            this.Stunde2.Name = "Stunde2";
-            this.Stunde2.Size = new System.Drawing.Size(76, 13);
-            this.Stunde2.TabIndex = 3;
-            this.Stunde2.Text = "2. 9:15 - 10:00";
-            // 
-            // Stunde3
-            // 
-            this.Stunde3.AutoSize = true;
-            this.Stunde3.BackColor = System.Drawing.Color.Transparent;
-            this.Stunde3.Location = new System.Drawing.Point(12, 102);
-            this.Stunde3.Name = "Stunde3";
-            this.Stunde3.Size = new System.Drawing.Size(82, 13);
-            this.Stunde3.TabIndex = 4;
-            this.Stunde3.Text = "3. 10:15 - 11:00";
-            // 
-            // Stunde4
-            // 
-            this.Stunde4.AutoSize = true;
-            this.Stunde4.BackColor = System.Drawing.Color.Transparent;
-            this.Stunde4.Location = new System.Drawing.Point(11, 130);
-            this.Stunde4.Name = "Stunde4";
-            this.Stunde4.Size = new System.Drawing.Size(82, 13);
-            this.Stunde4.TabIndex = 5;
-            this.Stunde4.Text = "4. 11:00 - 11:45";
-            // 
-            // Stunde5
-            // 
-            this.Stunde5.AutoSize = true;
-            this.Stunde5.BackColor = System.Drawing.Color.Transparent;
-            this.Stunde5.Location = new System.Drawing.Point(11, 159);
-            this.Stunde5.Name = "Stunde5";
-            this.Stunde5.Size = new System.Drawing.Size(82, 13);
-            this.Stunde5.TabIndex = 6;
-            this.Stunde5.Text = "5. 11:45 - 12:30";
-            // 
-            // Stunde6
-            // 
-            this.Stunde6.AutoSize = true;
-            this.Stunde6.BackColor = System.Drawing.Color.Transparent;
-            this.Stunde6.Location = new System.Drawing.Point(11, 187);
-            this.Stunde6.Name = "Stunde6";
-            this.Stunde6.Size = new System.Drawing.Size(82, 13);
-            this.Stunde6.TabIndex = 7;
-            this.Stunde6.Text = "6. 12:30 - 13:15";
-            // 
-            // Stunde7
-            // 
-            this.Stunde7.AutoSize = true;
-            this.Stunde7.BackColor = System.Drawing.Color.Transparent;
-            this.Stunde7.Location = new System.Drawing.Point(11, 217);
-            this.Stunde7.Name = "Stunde7";
-            this.Stunde7.Size = new System.Drawing.Size(82, 13);
-            this.Stunde7.TabIndex = 8;
-            this.Stunde7.Text = "7. 13:15 - 14:00";
-            // 
-            // Stunde8
-            // 
-            this.Stunde8.AutoSize = true;
-            this.Stunde8.BackColor = System.Drawing.Color.Transparent;
-            this.Stunde8.Location = new System.Drawing.Point(11, 245);
-            this.Stunde8.Name = "Stunde8";
-            this.Stunde8.Size = new System.Drawing.Size(82, 13);
-            this.Stunde8.TabIndex = 9;
-            this.Stunde8.Text = "8. 14:00 - 14:45";
-            // 
-            // Stunde9
-            // 
-            this.Stunde9.AutoSize = true;
-            this.Stunde9.BackColor = System.Drawing.Color.Transparent;
-            this.Stunde9.Location = new System.Drawing.Point(11, 275);
-            this.Stunde9.Name = "Stunde9";
-            this.Stunde9.Size = new System.Drawing.Size(82, 13);
-            this.Stunde9.TabIndex = 10;
-            this.Stunde9.Text = "9. 14:45 - 15:30";
-            // 
-            // Stunde10
-            // 
-            this.Stunde10.AutoSize = true;
-            this.Stunde10.BackColor = System.Drawing.Color.Transparent;
-            this.Stunde10.Location = new System.Drawing.Point(5, 302);
-            this.Stunde10.Name = "Stunde10";
-            this.Stunde10.Size = new System.Drawing.Size(88, 13);
-            this.Stunde10.TabIndex = 11;
-            this.Stunde10.Text = "10. 15:30 - 16:15";
-            // 
-            // Pause
-            // 
-            this.Pause.AutoSize = true;
-            this.Pause.BackColor = System.Drawing.Color.Transparent;
-            this.Pause.Location = new System.Drawing.Point(55, 78);
-            this.Pause.Name = "Pause";
-            this.Pause.Size = new System.Drawing.Size(109, 13);
-            this.Pause.TabIndex = 12;
-            this.Pause.Text = "Pause - 10:00 - 10:15";
-            // 
-            // Fach1
-            // 
-            this.Fach1.AutoSize = true;
-            this.Fach1.Location = new System.Drawing.Point(94, 5);
-            this.Fach1.Name = "Fach1";
-            this.Fach1.Size = new System.Drawing.Size(0, 13);
-            this.Fach1.TabIndex = 0;
-            this.Fach1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // Fach2
-            // 
-            this.Fach2.AutoSize = true;
-            this.Fach2.Location = new System.Drawing.Point(94, 5);
-            this.Fach2.Name = "Fach2";
-            this.Fach2.Size = new System.Drawing.Size(0, 13);
-            this.Fach2.TabIndex = 1;
-            this.Fach2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // Fach3
-            // 
-            this.Fach3.AutoSize = true;
-            this.Fach3.Location = new System.Drawing.Point(94, 5);
-            this.Fach3.Name = "Fach3";
-            this.Fach3.Size = new System.Drawing.Size(0, 13);
-            this.Fach3.TabIndex = 1;
-            this.Fach3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // Fach4
-            // 
-            this.Fach4.AutoSize = true;
-            this.Fach4.Location = new System.Drawing.Point(94, 4);
-            this.Fach4.Name = "Fach4";
-            this.Fach4.Size = new System.Drawing.Size(0, 13);
-            this.Fach4.TabIndex = 2;
-            this.Fach4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // Fach5
-            // 
-            this.Fach5.AutoSize = true;
-            this.Fach5.Location = new System.Drawing.Point(94, 5);
-            this.Fach5.Name = "Fach5";
-            this.Fach5.Size = new System.Drawing.Size(0, 13);
-            this.Fach5.TabIndex = 2;
-            this.Fach5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // Fach6
-            // 
-            this.Fach6.AutoSize = true;
-            this.Fach6.Location = new System.Drawing.Point(94, 4);
-            this.Fach6.Name = "Fach6";
-            this.Fach6.Size = new System.Drawing.Size(0, 13);
-            this.Fach6.TabIndex = 2;
-            this.Fach6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // Fach7
-            // 
-            this.Fach7.AutoSize = true;
-            this.Fach7.Location = new System.Drawing.Point(94, 4);
-            this.Fach7.Name = "Fach7";
-            this.Fach7.Size = new System.Drawing.Size(0, 13);
-            this.Fach7.TabIndex = 2;
-            this.Fach7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // Fach8
-            // 
-            this.Fach8.AutoSize = true;
-            this.Fach8.Location = new System.Drawing.Point(94, 4);
-            this.Fach8.Name = "Fach8";
-            this.Fach8.Size = new System.Drawing.Size(0, 13);
-            this.Fach8.TabIndex = 2;
-            this.Fach8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // Fach9
-            // 
-            this.Fach9.AutoSize = true;
-            this.Fach9.Location = new System.Drawing.Point(94, 4);
-            this.Fach9.Name = "Fach9";
-            this.Fach9.Size = new System.Drawing.Size(0, 13);
-            this.Fach9.TabIndex = 2;
-            this.Fach9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // Fach10
-            // 
-            this.Fach10.AutoSize = true;
-            this.Fach10.Location = new System.Drawing.Point(94, 5);
-            this.Fach10.Name = "Fach10";
-            this.Fach10.Size = new System.Drawing.Size(0, 13);
-            this.Fach10.TabIndex = 2;
-            this.Fach10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // Credits
             // 
@@ -756,11 +788,157 @@
             this.Credits.UseVisualStyleBackColor = true;
             this.Credits.Click += new System.EventHandler(this.Credits_Click);
             // 
+            // Montag
+            // 
+            this.Montag.Controls.Add(this.montaglist);
+            this.Montag.Location = new System.Drawing.Point(12, 42);
+            this.Montag.Name = "Montag";
+            this.Montag.Size = new System.Drawing.Size(96, 276);
+            this.Montag.TabIndex = 0;
+            this.Montag.TabStop = false;
+            this.Montag.Text = "Montag";
+            // 
+            // groupBox7
+            // 
+            this.groupBox7.Controls.Add(this.dienstaglist);
+            this.groupBox7.Location = new System.Drawing.Point(114, 42);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(96, 276);
+            this.groupBox7.TabIndex = 1;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "Dienstag";
+            // 
+            // groupBox8
+            // 
+            this.groupBox8.Controls.Add(this.mittwochlist);
+            this.groupBox8.Location = new System.Drawing.Point(216, 42);
+            this.groupBox8.Name = "groupBox8";
+            this.groupBox8.Size = new System.Drawing.Size(96, 276);
+            this.groupBox8.TabIndex = 1;
+            this.groupBox8.TabStop = false;
+            this.groupBox8.Text = "Mittwoch";
+            // 
+            // groupBox9
+            // 
+            this.groupBox9.Controls.Add(this.donnerstaglist);
+            this.groupBox9.Location = new System.Drawing.Point(318, 42);
+            this.groupBox9.Name = "groupBox9";
+            this.groupBox9.Size = new System.Drawing.Size(96, 276);
+            this.groupBox9.TabIndex = 1;
+            this.groupBox9.TabStop = false;
+            this.groupBox9.Text = "Donnerstag";
+            // 
+            // groupBox10
+            // 
+            this.groupBox10.Controls.Add(this.freitaglist);
+            this.groupBox10.Location = new System.Drawing.Point(420, 42);
+            this.groupBox10.Name = "groupBox10";
+            this.groupBox10.Size = new System.Drawing.Size(96, 276);
+            this.groupBox10.TabIndex = 2;
+            this.groupBox10.TabStop = false;
+            this.groupBox10.Text = "Freitag";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(9, 18);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(91, 13);
+            this.label8.TabIndex = 3;
+            this.label8.Text = "Stundenplan von:";
+            // 
+            // montagdatum
+            // 
+            this.montagdatum.AutoSize = true;
+            this.montagdatum.Location = new System.Drawing.Point(137, 18);
+            this.montagdatum.Name = "montagdatum";
+            this.montagdatum.Size = new System.Drawing.Size(50, 13);
+            this.montagdatum.TabIndex = 4;
+            this.montagdatum.Text = "{montag}";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(286, 18);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(20, 13);
+            this.label9.TabIndex = 5;
+            this.label9.Text = "bis";
+            // 
+            // freitagdatum
+            // 
+            this.freitagdatum.AutoSize = true;
+            this.freitagdatum.Location = new System.Drawing.Point(422, 18);
+            this.freitagdatum.Name = "freitagdatum";
+            this.freitagdatum.Size = new System.Drawing.Size(44, 13);
+            this.freitagdatum.TabIndex = 6;
+            this.freitagdatum.Text = "{freitag}";
+            // 
+            // listBox1
+            // 
+            this.listBox1.BackColor = System.Drawing.SystemColors.Control;
+            this.listBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.Location = new System.Drawing.Point(7, 15);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(296, 299);
+            this.listBox1.TabIndex = 0;
+            // 
+            // montaglist
+            // 
+            this.montaglist.BackColor = System.Drawing.SystemColors.Control;
+            this.montaglist.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.montaglist.FormattingEnabled = true;
+            this.montaglist.Location = new System.Drawing.Point(6, 18);
+            this.montaglist.Name = "montaglist";
+            this.montaglist.Size = new System.Drawing.Size(85, 247);
+            this.montaglist.TabIndex = 0;
+            // 
+            // dienstaglist
+            // 
+            this.dienstaglist.BackColor = System.Drawing.SystemColors.Control;
+            this.dienstaglist.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dienstaglist.FormattingEnabled = true;
+            this.dienstaglist.Location = new System.Drawing.Point(6, 18);
+            this.dienstaglist.Name = "dienstaglist";
+            this.dienstaglist.Size = new System.Drawing.Size(85, 247);
+            this.dienstaglist.TabIndex = 1;
+            // 
+            // mittwochlist
+            // 
+            this.mittwochlist.BackColor = System.Drawing.SystemColors.Control;
+            this.mittwochlist.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.mittwochlist.FormattingEnabled = true;
+            this.mittwochlist.Location = new System.Drawing.Point(6, 18);
+            this.mittwochlist.Name = "mittwochlist";
+            this.mittwochlist.Size = new System.Drawing.Size(85, 247);
+            this.mittwochlist.TabIndex = 2;
+            // 
+            // donnerstaglist
+            // 
+            this.donnerstaglist.BackColor = System.Drawing.SystemColors.Control;
+            this.donnerstaglist.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.donnerstaglist.FormattingEnabled = true;
+            this.donnerstaglist.Location = new System.Drawing.Point(5, 18);
+            this.donnerstaglist.Name = "donnerstaglist";
+            this.donnerstaglist.Size = new System.Drawing.Size(85, 247);
+            this.donnerstaglist.TabIndex = 3;
+            // 
+            // freitaglist
+            // 
+            this.freitaglist.BackColor = System.Drawing.SystemColors.Control;
+            this.freitaglist.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.freitaglist.FormattingEnabled = true;
+            this.freitaglist.Location = new System.Drawing.Point(6, 18);
+            this.freitaglist.Name = "freitaglist";
+            this.freitaglist.Size = new System.Drawing.Size(85, 247);
+            this.freitaglist.TabIndex = 4;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(633, 413);
+            this.ClientSize = new System.Drawing.Size(718, 413);
             this.Controls.Add(this.Credits);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
@@ -770,39 +948,48 @@
             this.MinimizeBox = false;
             this.Name = "Form1";
             this.Text = "Digikabu";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
             this.Termine.ResumeLayout(false);
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
+            this.panel10.ResumeLayout(false);
+            this.panel10.PerformLayout();
+            this.panel9.ResumeLayout(false);
+            this.panel9.PerformLayout();
+            this.panel8.ResumeLayout(false);
+            this.panel8.PerformLayout();
+            this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            this.Stundenplan.ResumeLayout(false);
+            this.Stundenplan.PerformLayout();
             this.Fehlzeiten.ResumeLayout(false);
             this.Fehlzeiten.PerformLayout();
             this.Einstellungen.ResumeLayout(false);
             this.Einstellungen.PerformLayout();
-            this.groupBox5.ResumeLayout(false);
-            this.groupBox5.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
-            this.panel6.ResumeLayout(false);
-            this.panel6.PerformLayout();
-            this.panel7.ResumeLayout(false);
-            this.panel7.PerformLayout();
-            this.panel8.ResumeLayout(false);
-            this.panel8.PerformLayout();
-            this.panel9.ResumeLayout(false);
-            this.panel9.PerformLayout();
-            this.panel10.ResumeLayout(false);
-            this.panel10.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.Montag.ResumeLayout(false);
+            this.groupBox7.ResumeLayout(false);
+            this.groupBox8.ResumeLayout(false);
+            this.groupBox9.ResumeLayout(false);
+            this.groupBox10.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -885,6 +1072,21 @@
         private System.Windows.Forms.Label Fach2;
         private System.Windows.Forms.Label Fach1;
         private System.Windows.Forms.Button Credits;
+        private System.Windows.Forms.GroupBox groupBox10;
+        private System.Windows.Forms.GroupBox groupBox9;
+        private System.Windows.Forms.GroupBox groupBox8;
+        private System.Windows.Forms.GroupBox groupBox7;
+        private System.Windows.Forms.GroupBox Montag;
+        private System.Windows.Forms.Label freitagdatum;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label montagdatum;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox freitaglist;
+        private System.Windows.Forms.ListBox donnerstaglist;
+        private System.Windows.Forms.ListBox mittwochlist;
+        private System.Windows.Forms.ListBox dienstaglist;
+        private System.Windows.Forms.ListBox montaglist;
     }
 }
 

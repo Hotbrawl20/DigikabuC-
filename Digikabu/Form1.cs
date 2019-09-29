@@ -20,8 +20,10 @@ namespace Digikabu
         fehlzeiten,
         einstellungen
     }
+    
     public partial class Form1 : Form
     {
+        private string[] stundenArray = new string[10];
         private static readonly HttpClient client = new HttpClient();
         public Form1()
         {
@@ -61,7 +63,7 @@ namespace Digikabu
                     tabControl1.Visible = true;
                     comboBox1.SelectedItem = "Termine"; //termine = 0, rest jada jada
 
-                    
+
                     TerminFenster();
                 }
 
@@ -74,7 +76,7 @@ namespace Digikabu
         }
 
         private async void Button2_Click(object sender, EventArgs e) //Logout Button
-        {
+        { //toDo relogin falls ausgelogt
             var values = new Dictionary<string, string>
             {
 
@@ -110,6 +112,64 @@ namespace Digikabu
 
 
         }
+        static string fix(string toFix)
+        {
+            string ret = string.Empty;
+            if (toFix.Contains("&#x"))
+            {
+                ret = toFix;
+                ret = ret.Replace("&#xFC;", "ü");
+                ret = ret.Replace("&#xDF;", "ß");
+                ret = ret.Replace("&#xF6;", "ö");
+                ret = ret.Replace("&#xE4;", "ä");
+            }
+            else
+            {
+                ret = toFix;
+            }
+            return ret;
+        }
+        private async void gettermine()
+        {
+            var values = new Dictionary<string, string>
+            {
+
+            };
+
+            FormUrlEncodedContent content = new FormUrlEncodedContent(values);
+            var response = await client.PostAsync("https://digikabu.de/Main", content);
+
+            var responseString = await response.Content.ReadAsStringAsync();
+            string[] info = new string[2];
+            bool nextIsIgnore = false, nextIsMessage = false;
+            foreach (string s in responseString.Split('<'))
+            {
+
+                if (s.Contains("td"))
+                {
+                    var trim = s.Trim();
+                    if (trim.Contains("white-space"))
+                    {
+                        var x = trim.Split('>');
+                        info[0] = fix(x[1]) + ": ";
+                        nextIsIgnore = true;
+                    }
+                    else if (nextIsIgnore)
+                    {
+                        nextIsMessage = true;
+                        nextIsIgnore = false;
+                    }
+                    else if (nextIsMessage)
+                    {
+                        var x = trim.Split('>');
+                        nextIsMessage = false;
+                        info[1] = fix(x[1]);
+                        listBox1.Items.Add(info[0] + info[1]);
+                        listBox1.Items.Add("");
+                    }
+                }
+            }
+        }
         private async void TerminFenster()
         {
             var values = new Dictionary<string, string>
@@ -133,31 +193,7 @@ namespace Digikabu
                     if (s.Contains(")</span"))
                     {
                         string[] split = s.Split(' ');
-                        if (split[0].Contains("#xE4;"))
-                        {
-                            split[0].Replace("#xE4;", "ä");
-                        }
-                        if (split[0].Contains("#xF6;"))
-                        {
-                            split[0].Replace("#xF6;", "ö");
-                        }
-                        if (split[0].Contains("#xFC;"))
-                        {
-                            split[0].Replace("#xFC;", "ü");
-                        }
-                        if (split[1].Contains("#xE4;"))
-                        {
-                            split[1].Replace("#xE4;", "ä");
-                        }
-                        if (split[1].Contains("#xF6;"))
-                        {
-                            split[1].Replace("#xF6;", "ö");
-                        }
-                        if (split[1].Contains("#xFC;"))
-                        {
-                            split[1].Replace("#xFC;", "ü");
-                        }
-                        un.Text = split[0] + " " + split[1];
+                        un.Text = fix(split[0]) + " " + fix(split[1]);
                         string klasse = split[2].Trim(new char[] { '(', ')' });
                         string[] klassesplit = klasse.Split(')');
                         kl.Text = klassesplit[0];
@@ -168,26 +204,31 @@ namespace Digikabu
                     }
 
                 }
+
                 int fach = 0;
                 int fach2 = 0;
                 string fachsave = string.Empty;
-                foreach(string s in responseString.Split('<'))
+                foreach (string s in responseString.Split('<'))
                 {
-                    
+
                     if (s.Contains("svg x="))
                     {
                         string[] split = s.Split(' ');
                         string[] fach1 = split[2].Split('\'');
                         string[] fachx = split[4].Split('\'');
-                        
-                       fach2 = Convert.ToInt32(fachx[1]) / 60;
+
+                        fach2 = Convert.ToInt32(fachx[1]) / 60;
                         fach = Convert.ToInt32(fach1[1]) / 60;
                     }
-                    
+
                     if (s.Contains("text-anchor='middle'"))
                     {
                         string[] split = s.Split('>');
                         fachsave = split[1];
+                        if (fachsave == "RK" || fachsave == "RV")
+                        {
+                            fachsave = "Religion";
+                        }
                         if (fach2 < 2)
                         {
                             switch (fach)
@@ -226,7 +267,7 @@ namespace Digikabu
                         }
                         else
                         {
-                            if(fach2 == 2)
+                            if (fach2 == 2)
                             {
                                 switch (fach)
                                 {
@@ -324,15 +365,15 @@ namespace Digikabu
                                         break;
                                 }
                             }
-                           
+
                         }
                     }
                     else
                     {
-
+                        //ToDo: Wofür ist dieses Else
                     }
                 }
-                
+
             }
             else
             {
@@ -351,8 +392,8 @@ namespace Digikabu
 
                 FormUrlEncodedContent content = new FormUrlEncodedContent(values);
                 HttpResponseMessage response = null;
-                
-                   
+
+
                 response = await client.PostAsync("https://digikabu.de/Login/Proceed", content);
                 var responseString = await response.Content.ReadAsStringAsync();
 
@@ -394,7 +435,7 @@ namespace Digikabu
             var responsestring = await response.Content.ReadAsStringAsync();
             int z = 0; //0 für ganztag, 1 für stundenweise
             string[] stunden = new string[2];
-            foreach(string s in responsestring.Split(' '))
+            foreach (string s in responsestring.Split(' '))
             {
                 if (s.Contains("style=\"color:blue;font-weight:bold\">"))
                 {
@@ -403,7 +444,7 @@ namespace Digikabu
                 }
             }
             string[] ganztags1 = stunden[0].Split('>');//nummer = 2, {nummer}</span
-            
+
             string[] ganztags = ganztags1[1].Split('<');
             ganz.Text = ganztags[0];
             string[] sweise1 = stunden[1].Split('>');//nummer = 2, {nummer}</span
@@ -414,7 +455,7 @@ namespace Digikabu
         {
             var response = await client.GetAsync("https://digikabu.de/Einstellungen");
             var responsestring = await response.Content.ReadAsStringAsync();
-            foreach(string s in responsestring.Split('>'))
+            foreach (string s in responsestring.Split('>'))
             {
                 if (s.Contains("email1"))
                 {
@@ -445,23 +486,286 @@ namespace Digikabu
                     {
                         email2.Text = split[4];
                     }
-                    
+
                 }
             }
 
         }
+        private void StundenplanFenster()
+        {
+            //variable datum_montag
+            DateTime datum_montag = StartingDateOfWeek(DateTime.Now), datum_freitag = datum_montag.AddDays(4);
 
+            //TODO: Montag bis Freitag datum montagdatum, freitagdatum labels
+            montagdatum.Text = datum_montag.ToString("dd.MM.yyyy");
+            freitagdatum.Text = datum_freitag.ToString("dd.MM.yyyy");
+
+            //TODO: Fachausgabe a tag
+            #region Fächer
+            #region Montag
+            InsertStunden(montaglist, datum_montag);
+            #endregion
+            #region Dienstag
+            InsertStunden(dienstaglist, datum_montag.AddDays(1));
+            #endregion
+            #region Mittwoch
+            InsertStunden(mittwochlist, datum_montag.AddDays(2));
+            #endregion
+            #region Donnerstag
+            InsertStunden(donnerstaglist, datum_montag.AddDays(3));
+            #endregion
+            #region Freitag
+            InsertStunden(freitaglist, datum_montag.AddDays(4));
+            #endregion
+            #endregion
+        }
+        private string[] returnThisShit(string[] array)
+        {
+            return array;
+        }
+        
+        private async void InsertStunden(ListBox listbox, DateTime date)
+        {
+            var response = await client.GetAsync("https://digikabu.de/Main?date=" + date.ToString("yyyy-MM-dd"));
+            var responsestring = await response.Content.ReadAsStringAsync();
+            string[] stunden = new string[10];
+            int fach = 0;
+            int fach2 = 0;
+            string fachsave = string.Empty;
+            foreach (string s in responsestring.Split('<'))
+            {
+
+                if (s.Contains("svg x="))
+                {
+                    string[] split = s.Split(' ');
+                    string[] fach1 = split[2].Split('\'');
+                    string[] fachx = split[4].Split('\'');
+
+                    fach2 = Convert.ToInt32(fachx[1]) / 60;
+                    fach = Convert.ToInt32(fach1[1]) / 60;
+                }
+
+                if (s.Contains("text-anchor='middle'"))
+                {
+                    string[] split = s.Split('>');
+                    fachsave = split[1];
+                    if (fachsave == "RK" || fachsave == "RV")
+                    {
+                        fachsave = "Religion";
+                    }
+                    if (fach2 < 2)
+                    {
+                        /*switch (fach)
+                        {
+                            case 0:
+                                stunden[0] = fachsave; zuvor: Fach1.Text = fachsave;
+                                break;
+                            case 1:
+                                stunden[1] = fachsave;
+                                break;
+                            case 2:
+                                stunden[2] = fachsave;
+                                break;
+                            case 3:
+                                stunden[3] = fachsave;
+                                break;
+                            case 4:
+                                stunden[4] = fachsave;
+                                break;
+                            case 5:
+                                Fach6.Text = fachsave;
+                                break;
+                            case 6:
+                                Fach7.Text = fachsave;
+                                break;
+                            case 7:
+                                Fach8.Text = fachsave;
+                                break;
+                            case 8:
+                                Fach9.Text = fachsave;
+                                break;
+                            case 9:
+                                Fach10.Text = fachsave;
+                                break;
+                        }*/
+                        /*if (fach < 5)
+                        {*/
+                            stunden[fach] = fachsave;
+                        /*}
+                        else
+                        {
+                            stunden[fach + 1] = fachsave;
+                        }*/
+                    }
+                    else
+                    {
+                        if (fach2 == 2)
+                        {
+                            switch (fach)
+                            {
+                                case 0:
+                                    stunden[0] = fachsave;
+                                    stunden[1] = fachsave;
+                                    break;
+                                case 1:
+                                    stunden[1] = fachsave;
+                                    stunden[2] = fachsave;
+                                    break;
+                                case 2:
+                                    stunden[2] = fachsave;
+                                    stunden[3] = fachsave;
+                                    break;
+                                case 3:
+                                    stunden[3] = fachsave;
+                                    stunden[4] = fachsave;
+                                    break;
+                                case 4:
+                                    stunden[4] = fachsave;
+                                    stunden[5] = fachsave;
+                                    break;
+                                case 5:
+                                    stunden[5] = fachsave;
+                                    stunden[6] = fachsave;
+                                    break;
+                                case 6:
+                                    stunden[6] = fachsave;
+                                    stunden[7] = fachsave;
+                                    break;
+                                case 7:
+                                    stunden[7] = fachsave;
+                                    stunden[8] = fachsave;
+                                    break;
+                                case 8:
+                                    stunden[8] = fachsave;
+                                    stunden[9] = fachsave;
+                                    break;
+                                case 9:
+                                    stunden[9] = fachsave;
+                                    break;
+                            }
+                        }
+                        else
+                        {
+                            switch (fach)
+                            {
+                                case 0:
+                                    stunden[0] = fachsave;
+                                    stunden[1] = fachsave;
+                                    stunden[2] = fachsave;
+                                    break;
+                                case 1:
+                                    stunden[1] = fachsave;
+                                    stunden[2] = fachsave;
+                                    stunden[3] = fachsave;
+                                    break;
+                                case 2:
+                                    stunden[2] = fachsave;
+                                    stunden[3] = fachsave;
+                                    stunden[4] = fachsave;
+                                    break;
+                                case 3:
+                                    stunden[3] = fachsave;
+                                    stunden[4] = fachsave;
+                                    stunden[5] = fachsave;
+                                    break;
+                                case 4:
+                                    stunden[4] = fachsave;
+                                    stunden[5] = fachsave;
+                                    stunden[6] = fachsave;
+                                    break;
+                                case 5:
+                                    stunden[5] = fachsave;
+                                    stunden[6] = fachsave;
+                                    stunden[7] = fachsave;
+                                    break;
+                                case 6:
+                                    stunden[6] = fachsave;
+                                    stunden[7] = fachsave;
+                                    stunden[8] = fachsave;
+                                    break;
+                                case 7:
+                                    stunden[7] = fachsave;
+                                    stunden[8] = fachsave;
+                                    stunden[9] = fachsave;
+                                    break;
+                                case 8:
+                                    stunden[8] = fachsave;
+                                    stunden[9] = fachsave;
+                                    break;
+                                case 9:
+                                    stunden[9] = fachsave;
+                                    break;
+                            }
+                        }
+
+                    }
+                }
+                else
+                {
+                    //ToDo: Wofür ist dieses Else
+                }
+            }
+            foreach(string s in stunden)
+            {
+                string edit_s = s;
+                if(edit_s == null)
+                {
+                    edit_s = "";
+                }
+                listbox.Items.Add(edit_s);
+            }
+        }
+        private DateTime StartingDateOfWeek(DateTime date)
+        {
+            DateTime usedDate;
+            int dateAdjustment = 0;
+            switch (date.DayOfWeek)
+            {
+                case DayOfWeek.Sunday:
+                    dateAdjustment = 1;
+                    break;
+                case DayOfWeek.Monday:
+                    dateAdjustment = 0;
+                    break;
+                case DayOfWeek.Tuesday:
+                    dateAdjustment = -1;
+                    break;
+                case DayOfWeek.Wednesday:
+                    dateAdjustment = -2;
+                    break;
+                case DayOfWeek.Thursday:
+                    dateAdjustment = -3;
+                    break;
+                case DayOfWeek.Friday:
+                    dateAdjustment = -4;
+                    break;
+                case DayOfWeek.Saturday:
+                    dateAdjustment = 2;
+                    break;
+                default:
+                    break;
+            }
+            usedDate = date.AddDays(Convert.ToDouble(dateAdjustment));
+            return usedDate;
+        }
         private void ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (comboBox1.SelectedIndex == 0)
             {
                 tabControl1.SelectedIndex = 0;
                 TerminFenster();
+                listBox1.Items.Clear();
+                gettermine();
             }
             if (comboBox1.SelectedIndex == 1)
             {
                 tabControl1.SelectedIndex = 1;
-
+                montaglist.Items.Clear();
+                dienstaglist.Items.Clear();
+                mittwochlist.Items.Clear();
+                donnerstaglist.Items.Clear();
+                freitaglist.Items.Clear();
+                StundenplanFenster();
             }
             if (comboBox1.SelectedIndex == 2)
             {
@@ -652,6 +956,16 @@ namespace Digikabu
         private void Credits_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Nico Haberkorn\nJulian Bergmann", "Credits", MessageBoxButtons.OK);
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Button1_Click_1(object sender, EventArgs e)
+        {
+            
         }
     }
     
