@@ -836,85 +836,85 @@ namespace Digikabu
                 case "1":
                     if(Fach1.Text != string.Empty)
                     {
-                        panel1.BackColor = Color.Gray;
-                        Stunde1.BackColor = Color.Gray;
-                        Fach1.BackColor = Color.Gray;
+                        panel1.BackColor = Color.LightGray;
+                        Stunde1.BackColor = Color.LightGray;
+                        Fach1.BackColor = Color.LightGray;
                     }
                     break;
                 case "2":
                     if (Fach2.Text != string.Empty)
                     {
-                        panel2.BackColor = Color.Gray;
-                        Stunde2.BackColor = Color.Gray;
-                        Fach2.BackColor = Color.Gray;
+                        panel2.BackColor = Color.LightGray;
+                        Stunde2.BackColor = Color.LightGray;
+                        Fach2.BackColor = Color.LightGray;
                     }
                     break;
                 case "3":
                     if (Fach3.Text != string.Empty)
                     {
-                        panel3.BackColor = Color.Gray;
-                        Stunde3.BackColor = Color.Gray;
-                        Fach3.BackColor = Color.Gray;
+                        panel3.BackColor = Color.LightGray;
+                        Stunde3.BackColor = Color.LightGray;
+                        Fach3.BackColor = Color.LightGray;
                     }
                     break;
                 case "4":
                     if (Fach4.Text != string.Empty)
                     {
-                        panel4.BackColor = Color.Gray;
-                        Stunde4.BackColor = Color.Gray;
-                        Fach4.BackColor = Color.Gray;
+                        panel4.BackColor = Color.LightGray;
+                        Stunde4.BackColor = Color.LightGray;
+                        Fach4.BackColor = Color.LightGray;
                     }
                     break;
                 case "5":
                     if (Fach5.Text != string.Empty)
                     {
-                        panel5.BackColor = Color.Gray;
-                        Stunde5.BackColor = Color.Gray;
-                        Fach5.BackColor = Color.Gray;
+                        panel5.BackColor = Color.LightGray;
+                        Stunde5.BackColor = Color.LightGray;
+                        Fach5.BackColor = Color.LightGray;
                     }
                     break;
                 case "6":
                     if (Fach6.Text != string.Empty)
                     {
-                        panel6.BackColor = Color.Gray;
-                        Stunde6.BackColor = Color.Gray;
-                        Fach6.BackColor = Color.Gray;
+                        panel6.BackColor = Color.LightGray;
+                        Stunde6.BackColor = Color.LightGray;
+                        Fach6.BackColor = Color.LightGray;
                     }
                     break;
                 case "7":
                     if (Fach7.Text != string.Empty)
                     {
-                        panel7.BackColor = Color.Gray;
-                        Stunde7.BackColor = Color.Gray;
-                        Fach7.BackColor = Color.Gray;
+                        panel7.BackColor = Color.LightGray;
+                        Stunde7.BackColor = Color.LightGray;
+                        Fach7.BackColor = Color.LightGray;
                     }
                     break;
                 case "8":
                     if (Fach8.Text != string.Empty)
                     {
-                        panel8.BackColor = Color.Gray;
-                        Stunde8.BackColor = Color.Gray;
-                        Fach8.BackColor = Color.Gray;
+                        panel8.BackColor = Color.LightGray;
+                        Stunde8.BackColor = Color.LightGray;
+                        Fach8.BackColor = Color.LightGray;
                     }
                     break;
                 case "9":
                     if (Fach9.Text != string.Empty)
                     {
-                        panel9.BackColor = Color.Gray;
-                        Stunde9.BackColor = Color.Gray;
-                        Fach9.BackColor = Color.Gray;
+                        panel9.BackColor = Color.LightGray;
+                        Stunde9.BackColor = Color.LightGray;
+                        Fach9.BackColor = Color.LightGray;
                     }
                     break;
                 case "10":
                     if (Fach10.Text != string.Empty)
                     {
-                        panel10.BackColor = Color.Gray;
-                        Stunde10.BackColor = Color.Gray;
-                        Fach10.BackColor = Color.Gray;
+                        panel10.BackColor = Color.LightGray;
+                        Stunde10.BackColor = Color.LightGray;
+                        Fach10.BackColor = Color.LightGray;
                     }
                     break;
                 case "Pause":
-                    Pause.BackColor = Color.Gray;
+                    Pause.BackColor = Color.LightGray;
                     break;
             }
         }
