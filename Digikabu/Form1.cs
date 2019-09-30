@@ -25,6 +25,7 @@ namespace Digikabu
     {
         private string[] stundenArray = new string[10];
         private static readonly HttpClient client = new HttpClient();
+        bool loggedin = false;
         public Form1()
         {
             InitializeComponent();
@@ -62,8 +63,9 @@ namespace Digikabu
                     comboBox1.Visible = true;
                     tabControl1.Visible = true;
                     comboBox1.SelectedItem = "Termine"; //termine = 0, rest jada jada
-
-
+                    usernamebox.Enabled = false;
+                    passwordbox.Enabled = false;
+                    loggedin = true;
                     TerminFenster();
                 }
 
@@ -102,7 +104,9 @@ namespace Digikabu
                 comboBox1.Enabled = false;
                 tabControl1.Visible = false;
                 comboBox1.Visible = false;
-
+                usernamebox.Enabled = true;
+                passwordbox.Enabled = true;
+                loggedin = false;
             }
             else
             {
@@ -204,183 +208,65 @@ namespace Digikabu
                     }
 
                 }
+                InsertStunden(null, DateTime.Now, true);
+                
 
-                int fach = 0;
-                int fach2 = 0;
-                string fachsave = string.Empty;
-                foreach (string s in responseString.Split('<'))
-                {
-
-                    if (s.Contains("svg x="))
-                    {
-                        string[] split = s.Split(' ');
-                        string[] fach1 = split[2].Split('\'');
-                        string[] fachx = split[4].Split('\'');
-
-                        fach2 = Convert.ToInt32(fachx[1]) / 60;
-                        fach = Convert.ToInt32(fach1[1]) / 60;
-                    }
-
-                    if (s.Contains("text-anchor='middle'"))
-                    {
-                        string[] split = s.Split('>');
-                        fachsave = split[1];
-                        if (fachsave == "RK" || fachsave == "RV")
-                        {
-                            fachsave = "Religion";
-                        }
-                        if (fach2 < 2)
-                        {
-                            switch (fach)
-                            {
-                                case 0:
-                                    Fach1.Text = fachsave;
-                                    break;
-                                case 1:
-                                    Fach2.Text = fachsave;
-                                    break;
-                                case 2:
-                                    Fach3.Text = fachsave;
-                                    break;
-                                case 3:
-                                    Fach4.Text = fachsave;
-                                    break;
-                                case 4:
-                                    Fach5.Text = fachsave;
-                                    break;
-                                case 5:
-                                    Fach6.Text = fachsave;
-                                    break;
-                                case 6:
-                                    Fach7.Text = fachsave;
-                                    break;
-                                case 7:
-                                    Fach8.Text = fachsave;
-                                    break;
-                                case 8:
-                                    Fach9.Text = fachsave;
-                                    break;
-                                case 9:
-                                    Fach10.Text = fachsave;
-                                    break;
-                            }
-                        }
-                        else
-                        {
-                            if (fach2 == 2)
-                            {
-                                switch (fach)
-                                {
-                                    case 0:
-                                        Fach1.Text = fachsave;
-                                        Fach2.Text = fachsave;
-                                        break;
-                                    case 1:
-                                        Fach2.Text = fachsave;
-                                        Fach3.Text = fachsave;
-                                        break;
-                                    case 2:
-                                        Fach3.Text = fachsave;
-                                        Fach4.Text = fachsave;
-                                        break;
-                                    case 3:
-                                        Fach4.Text = fachsave;
-                                        Fach5.Text = fachsave;
-                                        break;
-                                    case 4:
-                                        Fach5.Text = fachsave;
-                                        Fach6.Text = fachsave;
-                                        break;
-                                    case 5:
-                                        Fach6.Text = fachsave;
-                                        Fach7.Text = fachsave;
-                                        break;
-                                    case 6:
-                                        Fach7.Text = fachsave;
-                                        Fach8.Text = fachsave;
-                                        break;
-                                    case 7:
-                                        Fach8.Text = fachsave;
-                                        Fach9.Text = fachsave;
-                                        break;
-                                    case 8:
-                                        Fach9.Text = fachsave;
-                                        Fach10.Text = fachsave;
-                                        break;
-                                    case 9:
-                                        Fach10.Text = fachsave;
-                                        break;
-                                }
-                            }
-                            else
-                            {
-                                switch (fach)
-                                {
-                                    case 0:
-                                        Fach1.Text = fachsave;
-                                        Fach2.Text = fachsave;
-                                        Fach3.Text = fachsave;
-                                        break;
-                                    case 1:
-                                        Fach2.Text = fachsave;
-                                        Fach3.Text = fachsave;
-                                        Fach4.Text = fachsave;
-                                        break;
-                                    case 2:
-                                        Fach3.Text = fachsave;
-                                        Fach4.Text = fachsave;
-                                        Fach5.Text = fachsave;
-                                        break;
-                                    case 3:
-                                        Fach4.Text = fachsave;
-                                        Fach5.Text = fachsave;
-                                        Fach6.Text = fachsave;
-                                        break;
-                                    case 4:
-                                        Fach5.Text = fachsave;
-                                        Fach6.Text = fachsave;
-                                        Fach7.Text = fachsave;
-                                        break;
-                                    case 5:
-                                        Fach6.Text = fachsave;
-                                        Fach7.Text = fachsave;
-                                        Fach8.Text = fachsave;
-                                        break;
-                                    case 6:
-                                        Fach7.Text = fachsave;
-                                        Fach8.Text = fachsave;
-                                        Fach9.Text = fachsave;
-                                        break;
-                                    case 7:
-                                        Fach8.Text = fachsave;
-                                        Fach9.Text = fachsave;
-                                        Fach10.Text = fachsave;
-                                        break;
-                                    case 8:
-                                        Fach9.Text = fachsave;
-                                        Fach10.Text = fachsave;
-                                        break;
-                                    case 9:
-                                        Fach10.Text = fachsave;
-                                        break;
-                                }
-                            }
-
-                        }
-                    }
-                    else
-                    {
-                        //ToDo: Wofür ist dieses Else
-                    }
-                }
 
             }
             else
             {
-                relog(tabs.termin);
+                relog();
             }
         }
-        private async void relog(tabs t)
+        private async void getSchulaufgaben(ListBox lt)
+        {
+            string datesave = string.Empty;
+
+            int counter = 0;
+            var values = new Dictionary<string, string>
+            {
+
+            };
+
+            FormUrlEncodedContent content = new FormUrlEncodedContent(values);
+            var response = await client.PostAsync("https://digikabu.de/SchulaufgabenPlan", content);
+
+            var responseString = await response.Content.ReadAsStringAsync();
+            List<string> termine = new List<string>();
+
+            string[] split = responseString.Split('>');
+
+            foreach (string s in split)
+            {
+
+                switch (counter)
+                {
+                    case 6:
+
+                        datesave = s.Replace(".</strong", "");
+
+                        break;
+                    case 1:
+                        if (s != "</td")
+                        {
+                            termine.Add(datesave + ": " + s.Replace("</td", ""));
+                        }
+                        break;
+                    default:
+                        break;
+                }
+                counter--;
+                if (s.Contains("tr class=\"\""))
+                {
+                    counter = 8;
+                }
+            }
+            foreach(string s in termine)
+            {
+                lt.Items.Add(s);
+            }
+        }
+        private async void relog()
         {
             if (usernamebox.Text != "" && passwordbox.Text != "")
             {
@@ -404,26 +290,7 @@ namespace Digikabu
 
                 };
                 content = new FormUrlEncodedContent(values2);
-                switch (t)
-                {
-                    case tabs.termin:
-                        response = await client.PostAsync("https://digikabu.de/Main", content);
-                        // schon vergangene Stunden vllt nicht mehr anzeigen DateTime.Now...
-                        // oder Aktuelle Stunde highlighten, Julian schreibt dafür eine Klasse
-                        break;
-                    case tabs.stundenplan:
-                        response = await client.PostAsync("https://digikabu.de/Stundenplan/Klasse", content);
-                        break;
-                    case tabs.entschuldigung:
-                        response = await client.PostAsync("https://digikabu.de/Entschuldigung", content);
-                        break;
-                    case tabs.fehlzeiten:
-                        response = await client.PostAsync("https://digikabu.de/Fehlzeiten", content);
-                        break;
-                    case tabs.einstellungen:
-                        response = await client.PostAsync("https://digikabu.de/Einstellungen", content);
-                        break;
-                }
+               
                 responseString = await response.Content.ReadAsStringAsync();
             }
         }
@@ -503,19 +370,19 @@ namespace Digikabu
             //TODO: Fachausgabe a tag
             #region Fächer
             #region Montag
-            InsertStunden(montaglist, datum_montag);
+            InsertStunden(montaglist, datum_montag,false);
             #endregion
             #region Dienstag
-            InsertStunden(dienstaglist, datum_montag.AddDays(1));
+            InsertStunden(dienstaglist, datum_montag.AddDays(1), false);
             #endregion
             #region Mittwoch
-            InsertStunden(mittwochlist, datum_montag.AddDays(2));
+            InsertStunden(mittwochlist, datum_montag.AddDays(2), false);
             #endregion
             #region Donnerstag
-            InsertStunden(donnerstaglist, datum_montag.AddDays(3));
+            InsertStunden(donnerstaglist, datum_montag.AddDays(3), false);
             #endregion
             #region Freitag
-            InsertStunden(freitaglist, datum_montag.AddDays(4));
+            InsertStunden(freitaglist, datum_montag.AddDays(4), false);
             #endregion
             #endregion
         }
@@ -524,7 +391,7 @@ namespace Digikabu
             return array;
         }
         
-        private async void InsertStunden(ListBox listbox, DateTime date)
+        private async void InsertStunden(ListBox listbox, DateTime date, bool array)
         {
             var response = await client.GetAsync("https://digikabu.de/Main?date=" + date.ToString("yyyy-MM-dd"));
             var responsestring = await response.Content.ReadAsStringAsync();
@@ -555,47 +422,8 @@ namespace Digikabu
                     }
                     if (fach2 < 2)
                     {
-                        /*switch (fach)
-                        {
-                            case 0:
-                                stunden[0] = fachsave; zuvor: Fach1.Text = fachsave;
-                                break;
-                            case 1:
-                                stunden[1] = fachsave;
-                                break;
-                            case 2:
-                                stunden[2] = fachsave;
-                                break;
-                            case 3:
-                                stunden[3] = fachsave;
-                                break;
-                            case 4:
-                                stunden[4] = fachsave;
-                                break;
-                            case 5:
-                                Fach6.Text = fachsave;
-                                break;
-                            case 6:
-                                Fach7.Text = fachsave;
-                                break;
-                            case 7:
-                                Fach8.Text = fachsave;
-                                break;
-                            case 8:
-                                Fach9.Text = fachsave;
-                                break;
-                            case 9:
-                                Fach10.Text = fachsave;
-                                break;
-                        }*/
-                        /*if (fach < 5)
-                        {*/
                             stunden[fach] = fachsave;
-                        /*}
-                        else
-                        {
-                            stunden[fach + 1] = fachsave;
-                        }*/
+                        
                     }
                     else
                     {
@@ -700,20 +528,34 @@ namespace Digikabu
 
                     }
                 }
-                else
-                {
-                    //ToDo: Wofür ist dieses Else
-                }
+
             }
-            foreach(string s in stunden)
+            if (array)
             {
-                string edit_s = s;
-                if(edit_s == null)
-                {
-                    edit_s = "";
-                }
-                listbox.Items.Add(edit_s);
+                Fach1.Text = stunden[0];
+                Fach2.Text = stunden[1];
+                Fach3.Text = stunden[2];
+                Fach4.Text = stunden[3];
+                Fach5.Text = stunden[4];
+                Fach6.Text = stunden[5];
+                Fach7.Text = stunden[6];
+                Fach8.Text = stunden[7];
+                Fach9.Text = stunden[8];
+                Fach10.Text = stunden[9];
             }
+            else
+            {
+                foreach (string s in stunden)
+                {
+                    string edit_s = s;
+                    if (edit_s == null)
+                    {
+                        edit_s = "";
+                    }
+                    listbox.Items.Add(edit_s);
+                }
+            }
+            
         }
         private DateTime StartingDateOfWeek(DateTime date)
         {
@@ -750,6 +592,7 @@ namespace Digikabu
         }
         private void ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            relog();
             if (comboBox1.SelectedIndex == 0)
             {
                 tabControl1.SelectedIndex = 0;
@@ -770,7 +613,7 @@ namespace Digikabu
             if (comboBox1.SelectedIndex == 2)
             {
                 tabControl1.SelectedIndex = 2;
-
+                getSchulaufgaben(listBox2);
             }
             if (comboBox1.SelectedIndex == 3)
             {
@@ -827,7 +670,12 @@ namespace Digikabu
                     {
                         ausgabe = $"{i}";
                     }// ToDo wenn man nur 9 Stunden hat steht wahrscheinlich in der 10. Std immer noch '10.' Std statt 'Frei' da
+
                 }
+            }
+            if (DateTime.Now.CompareTo()
+            {
+                
             }
             //hier label highliten
             ResetHighlight();
@@ -966,6 +814,10 @@ namespace Digikabu
         private void Button1_Click_1(object sender, EventArgs e)
         {
             
+        }
+
+        private void Timer1_Tick(object sender, EventArgs e)
+        {
         }
     }
     

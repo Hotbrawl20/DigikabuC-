@@ -87,6 +87,8 @@
             this.Montag = new System.Windows.Forms.GroupBox();
             this.montaglist = new System.Windows.Forms.ListBox();
             this.Schulaufgabenplan = new System.Windows.Forms.TabPage();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.listBox2 = new System.Windows.Forms.ListBox();
             this.Entschuldigung = new System.Windows.Forms.TabPage();
             this.Fehlzeiten = new System.Windows.Forms.TabPage();
             this.stundenw = new System.Windows.Forms.TextBox();
@@ -108,6 +110,8 @@
             this.logout = new System.Windows.Forms.Button();
             this.Stunde = new System.Windows.Forms.Timer(this.components);
             this.Credits = new System.Windows.Forms.Button();
+            this.Time = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.Termine.SuspendLayout();
@@ -129,6 +133,8 @@
             this.groupBox8.SuspendLayout();
             this.groupBox7.SuspendLayout();
             this.Montag.SuspendLayout();
+            this.Schulaufgabenplan.SuspendLayout();
+            this.groupBox6.SuspendLayout();
             this.Fehlzeiten.SuspendLayout();
             this.Einstellungen.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -732,12 +738,33 @@
             // 
             // Schulaufgabenplan
             // 
+            this.Schulaufgabenplan.Controls.Add(this.groupBox6);
             this.Schulaufgabenplan.Location = new System.Drawing.Point(4, 25);
             this.Schulaufgabenplan.Name = "Schulaufgabenplan";
             this.Schulaufgabenplan.Size = new System.Drawing.Size(527, 334);
             this.Schulaufgabenplan.TabIndex = 2;
             this.Schulaufgabenplan.Text = "tabPage1";
             this.Schulaufgabenplan.UseVisualStyleBackColor = true;
+            // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.listBox2);
+            this.groupBox6.Location = new System.Drawing.Point(3, 3);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(521, 328);
+            this.groupBox6.TabIndex = 0;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Schulaufgaben und sonstige Termine";
+            // 
+            // listBox2
+            // 
+            this.listBox2.BackColor = System.Drawing.SystemColors.Control;
+            this.listBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.listBox2.FormattingEnabled = true;
+            this.listBox2.Location = new System.Drawing.Point(7, 17);
+            this.listBox2.Name = "listBox2";
+            this.listBox2.Size = new System.Drawing.Size(508, 299);
+            this.listBox2.TabIndex = 0;
             // 
             // Entschuldigung
             // 
@@ -940,11 +967,27 @@
             this.Credits.UseVisualStyleBackColor = true;
             this.Credits.Click += new System.EventHandler(this.Credits_Click);
             // 
+            // Time
+            // 
+            this.Time.AutoSize = true;
+            this.Time.BackColor = System.Drawing.Color.Transparent;
+            this.Time.Location = new System.Drawing.Point(15, 16);
+            this.Time.Name = "Time";
+            this.Time.Size = new System.Drawing.Size(0, 13);
+            this.Time.TabIndex = 13;
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.Timer1_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(718, 413);
+            this.Controls.Add(this.Time);
             this.Controls.Add(this.Credits);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
@@ -989,6 +1032,8 @@
             this.groupBox8.ResumeLayout(false);
             this.groupBox7.ResumeLayout(false);
             this.Montag.ResumeLayout(false);
+            this.Schulaufgabenplan.ResumeLayout(false);
+            this.groupBox6.ResumeLayout(false);
             this.Fehlzeiten.ResumeLayout(false);
             this.Fehlzeiten.PerformLayout();
             this.Einstellungen.ResumeLayout(false);
@@ -997,6 +1042,7 @@
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -1093,6 +1139,10 @@
         private System.Windows.Forms.ListBox mittwochlist;
         private System.Windows.Forms.ListBox dienstaglist;
         private System.Windows.Forms.ListBox montaglist;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.ListBox listBox2;
+        private System.Windows.Forms.Label Time;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 
