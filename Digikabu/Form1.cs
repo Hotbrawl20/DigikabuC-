@@ -62,7 +62,8 @@ namespace Digikabu
                     comboBox1.Visible = true;
                     tabControl1.Visible = true;
                     comboBox1.SelectedItem = "Termine"; //termine = 0, rest jada jada
-
+                    usernamebox.Enabled = false;
+                    passwordbox.Enabled = false;
 
                     TerminFenster();
                 }
@@ -76,7 +77,8 @@ namespace Digikabu
         }
 
         private async void Button2_Click(object sender, EventArgs e) //Logout Button
-        { //toDo relogin falls ausgelogt
+        {
+            relog();
             var values = new Dictionary<string, string>
             {
 
@@ -102,7 +104,8 @@ namespace Digikabu
                 comboBox1.Enabled = false;
                 tabControl1.Visible = false;
                 comboBox1.Visible = false;
-
+                usernamebox.Enabled = true;
+                passwordbox.Enabled = true;
             }
             else
             {
@@ -377,10 +380,10 @@ namespace Digikabu
             }
             else
             {
-                relog(tabs.termin);
+                
             }
         }
-        private async void relog(tabs t)
+        private async void relog()
         {
             if (usernamebox.Text != "" && passwordbox.Text != "")
             {
@@ -399,32 +402,7 @@ namespace Digikabu
 
 
 
-                var values2 = new Dictionary<string, string>
-                {
-
-                };
-                content = new FormUrlEncodedContent(values2);
-                switch (t)
-                {
-                    case tabs.termin:
-                        response = await client.PostAsync("https://digikabu.de/Main", content);
-                        // schon vergangene Stunden vllt nicht mehr anzeigen DateTime.Now...
-                        // oder Aktuelle Stunde highlighten, Julian schreibt dafür eine Klasse
-                        break;
-                    case tabs.stundenplan:
-                        response = await client.PostAsync("https://digikabu.de/Stundenplan/Klasse", content);
-                        break;
-                    case tabs.entschuldigung:
-                        response = await client.PostAsync("https://digikabu.de/Entschuldigung", content);
-                        break;
-                    case tabs.fehlzeiten:
-                        response = await client.PostAsync("https://digikabu.de/Fehlzeiten", content);
-                        break;
-                    case tabs.einstellungen:
-                        response = await client.PostAsync("https://digikabu.de/Einstellungen", content);
-                        break;
-                }
-                responseString = await response.Content.ReadAsStringAsync();
+               
             }
         }
         private async void FehlzeitenFenster()
@@ -750,6 +728,7 @@ namespace Digikabu
         }
         private void ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            relog();
             if (comboBox1.SelectedIndex == 0)
             {
                 tabControl1.SelectedIndex = 0;
