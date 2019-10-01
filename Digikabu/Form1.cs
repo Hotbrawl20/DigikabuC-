@@ -1,3 +1,4 @@
+
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -613,6 +614,7 @@ namespace Digikabu
             if (comboBox1.SelectedIndex == 2)
             {
                 tabControl1.SelectedIndex = 2;
+                listBox2.Items.Clear();
                 getSchulaufgaben(listBox2);
             }
             if (comboBox1.SelectedIndex == 3)
@@ -636,7 +638,7 @@ namespace Digikabu
         //Diese Methode wird ausgeführt, wenn eine neue Stunde anfängt
         private void Stunde_Tick(object sender, EventArgs e)
         {
-            string uStart = "8:30", ausgabe = string.Empty; // Unterrichtsstart, Ausgabe
+            string uStart = "20:42", ausgabe = string.Empty; // Unterrichtsstart, Ausgabe
             int stdDauer = 45, pDauer = 15, pPos = 2, stdAnz = 10; // Stundendauer, Pausendauer, Pausenposition(nach 2. Std), Maximale Stundenanz (für uns 10)
 
             DateTime jetzt = /*Convert.ToDateTime("8:30")*/DateTime.Now;
@@ -673,10 +675,7 @@ namespace Digikabu
 
                 }
             }
-            if (DateTime.Now.CompareTo()
-            {
-                
-            }
+
             //hier label highliten
             ResetHighlight();
             switch (ausgabe)
@@ -823,3 +822,4 @@ namespace Digikabu
     
 
 }
+
