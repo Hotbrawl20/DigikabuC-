@@ -171,7 +171,8 @@ namespace Digikabu
                         info[1] = fix(x[1]);
                         listBox1.Items.Add(info[0] + info[1]);
                         listBox1.Items.Add("");
-                    }
+                    }//Hallo, gibts was zu machen? like ein ToDo oder so? oder was machst du
+                    //boah tbh keine ahnung was wir zurzeit machen sollten. vllt n essensplan?okay, soll ich des lokal mal probieren?Sure, ich schick dir die website mal, ich kümemre mich weiter darum des zeug in die app zu kreigen
                 }
             }
         }
@@ -364,11 +365,11 @@ namespace Digikabu
             //variable datum_montag
             DateTime datum_montag = StartingDateOfWeek(DateTime.Now), datum_freitag = datum_montag.AddDays(4);
 
-            //TODO: Montag bis Freitag datum montagdatum, freitagdatum labels
+
             montagdatum.Text = datum_montag.ToString("dd.MM.yyyy");
             freitagdatum.Text = datum_freitag.ToString("dd.MM.yyyy");
 
-            //TODO: Fachausgabe a tag
+
             #region Fächer
             #region Montag
             InsertStunden(montaglist, datum_montag,false);
@@ -617,10 +618,10 @@ namespace Digikabu
                 listBox2.Items.Clear();
                 getSchulaufgaben(listBox2);
             }
-            if (comboBox1.SelectedIndex == 3)
+            if (comboBox1.SelectedIndex == 3) //Essensplan
             {
                 tabControl1.SelectedIndex = 3;
-                
+                GetEssensplan();
             }
             if (comboBox1.SelectedIndex == 4)
             {
@@ -633,12 +634,68 @@ namespace Digikabu
                 Einstellung();
             }
         }
-        
+        private async void GetEssensplan()
+        {
+            sp.Items.Clear();
+            var response = await client.GetAsync("https://www.bs-wiesau.de/index.php/bsz-wiesau/speiseplan-bistro");
+            var responseString = await response.Content.ReadAsStringAsync();
+            string[] els = responseString.Split('>');
+
+            bool abtabelle = false;
+
+            bool increment = false, abessen = false;
+            List<string> gerichte = new List<string>();
+            gerichte.Add(string.Empty);
+
+            foreach (var item in els)
+            {
+                if (!abtabelle && item.Trim().Contains("<table style=\"border-collapse: collapse;\"")/*item.ToLower().Contains("montag")*/)
+                {
+                    abtabelle = true;
+                }
+                if (item.Contains("Alle Gerichte gerne auch zum Mitnehmen"))
+                {
+                    abtabelle = false;
+                }
+                if (abtabelle && gerichte.Count < 6)
+                {
+                    if (item.Contains("line-height: 150"))
+                    {
+                        abessen = true;
+                    }
+
+                    if (abessen && item.Contains("td"))
+                    {
+                        if (!increment)
+                        {
+                            increment = true;
+                        }
+                        else
+                        {
+                            gerichte.Add(String.Empty);
+                            increment = false;
+                        }
+                    }
+                    if (item.Contains("/span"))
+                    {
+                        string ausgabe = item.Split('<')[0];
+                        if (ausgabe != String.Empty)
+                        {
+                            gerichte[gerichte.Count - 1] += ausgabe + " ";
+                        }
+                    }
+                }
+            }
+            sp.Items.Add("Montag: "+gerichte[0]);
+            sp.Items.Add("Dienstag: " + gerichte[1]);
+            sp.Items.Add("Mittwoch: " + gerichte[2]);
+            sp.Items.Add("Donnerstag: " + gerichte[3]);
+        }
 
         //Diese Methode wird ausgeführt, wenn eine neue Stunde anfängt
         private void Stunde_Tick(object sender, EventArgs e)
         {
-            string uStart = "8:30", ausgabe = string.Empty; // Unterrichtsstart, Ausgabe
+            string uStart = "20:42", ausgabe = string.Empty; // Unterrichtsstart, Ausgabe
             int stdDauer = 45, pDauer = 15, pPos = 2, stdAnz = 10; // Stundendauer, Pausendauer, Pausenposition(nach 2. Std), Maximale Stundenanz (für uns 10)
 
             DateTime jetzt = /*Convert.ToDateTime("8:30")*/DateTime.Now;

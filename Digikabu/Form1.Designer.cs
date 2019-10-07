@@ -89,7 +89,9 @@
             this.Schulaufgabenplan = new System.Windows.Forms.TabPage();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.listBox2 = new System.Windows.Forms.ListBox();
-            this.Entschuldigung = new System.Windows.Forms.TabPage();
+            this.Essensplan = new System.Windows.Forms.TabPage();
+            this.groupBox11 = new System.Windows.Forms.GroupBox();
+            this.sp = new System.Windows.Forms.ListBox();
             this.Fehlzeiten = new System.Windows.Forms.TabPage();
             this.stundenw = new System.Windows.Forms.TextBox();
             this.ganz = new System.Windows.Forms.TextBox();
@@ -135,6 +137,8 @@
             this.Montag.SuspendLayout();
             this.Schulaufgabenplan.SuspendLayout();
             this.groupBox6.SuspendLayout();
+            this.Essensplan.SuspendLayout();
+            this.groupBox11.SuspendLayout();
             this.Fehlzeiten.SuspendLayout();
             this.Einstellungen.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -165,7 +169,7 @@
             "Termine",
             "Stundenplan",
             "Schulaufgabenplan",
-            "Entschuldigung",
+            "Speiseplan",
             "Fehlzeiten",
             "Einstellungen"});
             this.comboBox1.Location = new System.Drawing.Point(11, 41);
@@ -221,7 +225,7 @@
             this.tabControl1.Controls.Add(this.Termine);
             this.tabControl1.Controls.Add(this.Stundenplan);
             this.tabControl1.Controls.Add(this.Schulaufgabenplan);
-            this.tabControl1.Controls.Add(this.Entschuldigung);
+            this.tabControl1.Controls.Add(this.Essensplan);
             this.tabControl1.Controls.Add(this.Fehlzeiten);
             this.tabControl1.Controls.Add(this.Einstellungen);
             this.tabControl1.ImeMode = System.Windows.Forms.ImeMode.Off;
@@ -766,14 +770,36 @@
             this.listBox2.Size = new System.Drawing.Size(508, 299);
             this.listBox2.TabIndex = 0;
             // 
-            // Entschuldigung
+            // Essensplan
             // 
-            this.Entschuldigung.Location = new System.Drawing.Point(4, 25);
-            this.Entschuldigung.Name = "Entschuldigung";
-            this.Entschuldigung.Size = new System.Drawing.Size(527, 334);
-            this.Entschuldigung.TabIndex = 3;
-            this.Entschuldigung.Text = "tabPage1";
-            this.Entschuldigung.UseVisualStyleBackColor = true;
+            this.Essensplan.Controls.Add(this.groupBox11);
+            this.Essensplan.Location = new System.Drawing.Point(4, 25);
+            this.Essensplan.Name = "Essensplan";
+            this.Essensplan.Size = new System.Drawing.Size(527, 334);
+            this.Essensplan.TabIndex = 3;
+            this.Essensplan.Text = "tabPage1";
+            this.Essensplan.UseVisualStyleBackColor = true;
+            // 
+            // groupBox11
+            // 
+            this.groupBox11.Controls.Add(this.sp);
+            this.groupBox11.Location = new System.Drawing.Point(3, 3);
+            this.groupBox11.Name = "groupBox11";
+            this.groupBox11.Size = new System.Drawing.Size(521, 328);
+            this.groupBox11.TabIndex = 1;
+            this.groupBox11.TabStop = false;
+            this.groupBox11.Text = "Speiseplan";
+            // 
+            // sp
+            // 
+            this.sp.BackColor = System.Drawing.SystemColors.Control;
+            this.sp.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.sp.Enabled = false;
+            this.sp.FormattingEnabled = true;
+            this.sp.Location = new System.Drawing.Point(6, 14);
+            this.sp.Name = "sp";
+            this.sp.Size = new System.Drawing.Size(509, 312);
+            this.sp.TabIndex = 0;
             // 
             // Fehlzeiten
             // 
@@ -1034,6 +1060,8 @@
             this.Montag.ResumeLayout(false);
             this.Schulaufgabenplan.ResumeLayout(false);
             this.groupBox6.ResumeLayout(false);
+            this.Essensplan.ResumeLayout(false);
+            this.groupBox11.ResumeLayout(false);
             this.Fehlzeiten.ResumeLayout(false);
             this.Fehlzeiten.PerformLayout();
             this.Einstellungen.ResumeLayout(false);
@@ -1066,7 +1094,7 @@
         private System.Windows.Forms.TabPage Termine;
         private System.Windows.Forms.TabPage Stundenplan;
         private System.Windows.Forms.TabPage Schulaufgabenplan;
-        private System.Windows.Forms.TabPage Entschuldigung;
+        private System.Windows.Forms.TabPage Essensplan;
         private System.Windows.Forms.TabPage Fehlzeiten;
         private System.Windows.Forms.TabPage Einstellungen;
         private System.Windows.Forms.Label label3;
@@ -1143,6 +1171,8 @@
         private System.Windows.Forms.ListBox listBox2;
         private System.Windows.Forms.Label Time;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.GroupBox groupBox11;
+        private System.Windows.Forms.ListBox sp;
     }
 }
 
