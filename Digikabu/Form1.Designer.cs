@@ -94,6 +94,8 @@
             this.groupBox11 = new System.Windows.Forms.GroupBox();
             this.sp = new System.Windows.Forms.ListBox();
             this.Fehlzeiten = new System.Windows.Forms.TabPage();
+            this.label11 = new System.Windows.Forms.Label();
+            this.fehlzeitview = new System.Windows.Forms.ListBox();
             this.stundenw = new System.Windows.Forms.TextBox();
             this.ganz = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -105,6 +107,16 @@
             this.email2 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.email1 = new System.Windows.Forms.TextBox();
+            this.Entschuldigung = new System.Windows.Forms.TabPage();
+            this.groupBox12 = new System.Windows.Forms.GroupBox();
+            this.krank = new System.Windows.Forms.Button();
+            this.Grund = new System.Windows.Forms.GroupBox();
+            this.grundtxt = new System.Windows.Forms.TextBox();
+            this.groupBox14 = new System.Windows.Forms.GroupBox();
+            this.dauerkrank = new System.Windows.Forms.ComboBox();
+            this.groupBox13 = new System.Windows.Forms.GroupBox();
+            this.krankmorgen = new System.Windows.Forms.RadioButton();
+            this.krankheute = new System.Windows.Forms.RadioButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.login = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -117,18 +129,6 @@
             this.Credits = new System.Windows.Forms.Button();
             this.Time = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.Entschuldigung = new System.Windows.Forms.TabPage();
-            this.groupBox12 = new System.Windows.Forms.GroupBox();
-            this.groupBox13 = new System.Windows.Forms.GroupBox();
-            this.krankheute = new System.Windows.Forms.RadioButton();
-            this.krankmorgen = new System.Windows.Forms.RadioButton();
-            this.groupBox14 = new System.Windows.Forms.GroupBox();
-            this.dauerkrank = new System.Windows.Forms.ComboBox();
-            this.Grund = new System.Windows.Forms.GroupBox();
-            this.grundtxt = new System.Windows.Forms.TextBox();
-            this.krank = new System.Windows.Forms.Button();
-            this.fehlzeitview = new System.Windows.Forms.ListBox();
-            this.label11 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.Termine.SuspendLayout();
@@ -156,13 +156,13 @@
             this.groupBox11.SuspendLayout();
             this.Fehlzeiten.SuspendLayout();
             this.Einstellungen.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
             this.Entschuldigung.SuspendLayout();
             this.groupBox12.SuspendLayout();
-            this.groupBox13.SuspendLayout();
-            this.groupBox14.SuspendLayout();
             this.Grund.SuspendLayout();
+            this.groupBox14.SuspendLayout();
+            this.groupBox13.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -296,7 +296,7 @@
             this.groupBox5.Controls.Add(this.panel1);
             this.groupBox5.Location = new System.Drawing.Point(7, 3);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(199, 327);
+            this.groupBox5.Size = new System.Drawing.Size(226, 327);
             this.groupBox5.TabIndex = 1;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Stundenplan";
@@ -416,7 +416,7 @@
             this.panel10.Controls.Add(this.Fach10);
             this.panel10.Location = new System.Drawing.Point(6, 298);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(187, 23);
+            this.panel10.Size = new System.Drawing.Size(214, 23);
             this.panel10.TabIndex = 1;
             // 
             // Fach10
@@ -433,7 +433,7 @@
             this.panel9.Controls.Add(this.Fach9);
             this.panel9.Location = new System.Drawing.Point(8, 270);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(185, 23);
+            this.panel9.Size = new System.Drawing.Size(212, 23);
             this.panel9.TabIndex = 1;
             // 
             // Fach9
@@ -450,7 +450,7 @@
             this.panel8.Controls.Add(this.Fach8);
             this.panel8.Location = new System.Drawing.Point(8, 241);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(185, 23);
+            this.panel8.Size = new System.Drawing.Size(212, 23);
             this.panel8.TabIndex = 1;
             // 
             // Fach8
@@ -467,7 +467,7 @@
             this.panel7.Controls.Add(this.Fach7);
             this.panel7.Location = new System.Drawing.Point(8, 213);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(185, 23);
+            this.panel7.Size = new System.Drawing.Size(212, 23);
             this.panel7.TabIndex = 1;
             // 
             // Fach7
@@ -484,7 +484,7 @@
             this.panel6.Controls.Add(this.Fach6);
             this.panel6.Location = new System.Drawing.Point(6, 183);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(187, 23);
+            this.panel6.Size = new System.Drawing.Size(214, 23);
             this.panel6.TabIndex = 1;
             // 
             // Fach6
@@ -501,7 +501,7 @@
             this.panel5.Controls.Add(this.Fach5);
             this.panel5.Location = new System.Drawing.Point(8, 154);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(185, 23);
+            this.panel5.Size = new System.Drawing.Size(212, 23);
             this.panel5.TabIndex = 1;
             // 
             // Fach5
@@ -518,7 +518,7 @@
             this.panel4.Controls.Add(this.Fach4);
             this.panel4.Location = new System.Drawing.Point(8, 125);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(185, 23);
+            this.panel4.Size = new System.Drawing.Size(212, 23);
             this.panel4.TabIndex = 1;
             // 
             // Fach4
@@ -535,7 +535,7 @@
             this.panel3.Controls.Add(this.Fach3);
             this.panel3.Location = new System.Drawing.Point(8, 97);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(185, 23);
+            this.panel3.Size = new System.Drawing.Size(212, 23);
             this.panel3.TabIndex = 1;
             // 
             // Fach3
@@ -552,7 +552,7 @@
             this.panel2.Controls.Add(this.Fach2);
             this.panel2.Location = new System.Drawing.Point(8, 49);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(185, 23);
+            this.panel2.Size = new System.Drawing.Size(212, 23);
             this.panel2.TabIndex = 1;
             // 
             // Fach2
@@ -569,7 +569,7 @@
             this.panel1.Controls.Add(this.Fach1);
             this.panel1.Location = new System.Drawing.Point(8, 20);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(185, 23);
+            this.panel1.Size = new System.Drawing.Size(212, 23);
             this.panel1.TabIndex = 0;
             // 
             // Fach1
@@ -584,9 +584,9 @@
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.listBox1);
-            this.groupBox4.Location = new System.Drawing.Point(212, 3);
+            this.groupBox4.Location = new System.Drawing.Point(239, 3);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(309, 327);
+            this.groupBox4.Size = new System.Drawing.Size(282, 327);
             this.groupBox4.TabIndex = 0;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Termine";
@@ -599,7 +599,7 @@
             this.listBox1.FormattingEnabled = true;
             this.listBox1.Location = new System.Drawing.Point(7, 15);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(296, 299);
+            this.listBox1.Size = new System.Drawing.Size(269, 299);
             this.listBox1.TabIndex = 0;
             // 
             // Stundenplan
@@ -838,6 +838,27 @@
             this.Fehlzeiten.Text = "tabPage1";
             this.Fehlzeiten.UseVisualStyleBackColor = true;
             // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(13, 70);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(50, 13);
+            this.label11.TabIndex = 11;
+            this.label11.Text = "Details:";
+            // 
+            // fehlzeitview
+            // 
+            this.fehlzeitview.BackColor = System.Drawing.SystemColors.Control;
+            this.fehlzeitview.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.fehlzeitview.Enabled = false;
+            this.fehlzeitview.FormattingEnabled = true;
+            this.fehlzeitview.Location = new System.Drawing.Point(16, 91);
+            this.fehlzeitview.Name = "fehlzeitview";
+            this.fehlzeitview.Size = new System.Drawing.Size(498, 234);
+            this.fehlzeitview.TabIndex = 10;
+            // 
             // stundenw
             // 
             this.stundenw.Enabled = false;
@@ -942,6 +963,112 @@
             this.email1.Name = "email1";
             this.email1.Size = new System.Drawing.Size(381, 20);
             this.email1.TabIndex = 0;
+            // 
+            // Entschuldigung
+            // 
+            this.Entschuldigung.Controls.Add(this.groupBox12);
+            this.Entschuldigung.Location = new System.Drawing.Point(4, 25);
+            this.Entschuldigung.Name = "Entschuldigung";
+            this.Entschuldigung.Size = new System.Drawing.Size(527, 334);
+            this.Entschuldigung.TabIndex = 6;
+            this.Entschuldigung.Text = "Entschuldigung";
+            this.Entschuldigung.UseVisualStyleBackColor = true;
+            // 
+            // groupBox12
+            // 
+            this.groupBox12.Controls.Add(this.krank);
+            this.groupBox12.Controls.Add(this.Grund);
+            this.groupBox12.Controls.Add(this.groupBox14);
+            this.groupBox12.Controls.Add(this.groupBox13);
+            this.groupBox12.Location = new System.Drawing.Point(3, 4);
+            this.groupBox12.Name = "groupBox12";
+            this.groupBox12.Size = new System.Drawing.Size(521, 327);
+            this.groupBox12.TabIndex = 0;
+            this.groupBox12.TabStop = false;
+            this.groupBox12.Text = "Entschuldigung";
+            // 
+            // krank
+            // 
+            this.krank.Location = new System.Drawing.Point(429, 182);
+            this.krank.Name = "krank";
+            this.krank.Size = new System.Drawing.Size(86, 23);
+            this.krank.TabIndex = 4;
+            this.krank.Text = "Krankmelden";
+            this.krank.UseVisualStyleBackColor = true;
+            this.krank.Click += new System.EventHandler(this.krank_Click);
+            // 
+            // Grund
+            // 
+            this.Grund.Controls.Add(this.grundtxt);
+            this.Grund.Location = new System.Drawing.Point(7, 122);
+            this.Grund.Name = "Grund";
+            this.Grund.Size = new System.Drawing.Size(508, 54);
+            this.Grund.TabIndex = 3;
+            this.Grund.TabStop = false;
+            this.Grund.Text = "Grund";
+            // 
+            // grundtxt
+            // 
+            this.grundtxt.Location = new System.Drawing.Point(8, 20);
+            this.grundtxt.Name = "grundtxt";
+            this.grundtxt.Size = new System.Drawing.Size(494, 20);
+            this.grundtxt.TabIndex = 0;
+            // 
+            // groupBox14
+            // 
+            this.groupBox14.Controls.Add(this.dauerkrank);
+            this.groupBox14.Location = new System.Drawing.Point(7, 61);
+            this.groupBox14.Name = "groupBox14";
+            this.groupBox14.Size = new System.Drawing.Size(508, 55);
+            this.groupBox14.TabIndex = 2;
+            this.groupBox14.TabStop = false;
+            this.groupBox14.Text = "Dauer";
+            // 
+            // dauerkrank
+            // 
+            this.dauerkrank.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.dauerkrank.FormattingEnabled = true;
+            this.dauerkrank.Items.AddRange(new object[] {
+            "1 Tag",
+            "2 Tage",
+            "3 Tage"});
+            this.dauerkrank.Location = new System.Drawing.Point(8, 19);
+            this.dauerkrank.Name = "dauerkrank";
+            this.dauerkrank.Size = new System.Drawing.Size(494, 21);
+            this.dauerkrank.TabIndex = 0;
+            // 
+            // groupBox13
+            // 
+            this.groupBox13.Controls.Add(this.krankmorgen);
+            this.groupBox13.Controls.Add(this.krankheute);
+            this.groupBox13.Location = new System.Drawing.Point(7, 20);
+            this.groupBox13.Name = "groupBox13";
+            this.groupBox13.Size = new System.Drawing.Size(508, 35);
+            this.groupBox13.TabIndex = 0;
+            this.groupBox13.TabStop = false;
+            this.groupBox13.Text = "Ab";
+            // 
+            // krankmorgen
+            // 
+            this.krankmorgen.AutoSize = true;
+            this.krankmorgen.Location = new System.Drawing.Point(245, 12);
+            this.krankmorgen.Name = "krankmorgen";
+            this.krankmorgen.Size = new System.Drawing.Size(68, 17);
+            this.krankmorgen.TabIndex = 1;
+            this.krankmorgen.TabStop = true;
+            this.krankmorgen.Text = "{morgen}";
+            this.krankmorgen.UseVisualStyleBackColor = true;
+            // 
+            // krankheute
+            // 
+            this.krankheute.AutoSize = true;
+            this.krankheute.Location = new System.Drawing.Point(8, 12);
+            this.krankheute.Name = "krankheute";
+            this.krankheute.Size = new System.Drawing.Size(60, 17);
+            this.krankheute.TabIndex = 0;
+            this.krankheute.TabStop = true;
+            this.krankheute.Text = "{heute}";
+            this.krankheute.UseVisualStyleBackColor = true;
             // 
             // groupBox2
             // 
@@ -1052,133 +1179,6 @@
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.Timer1_Tick);
             // 
-            // Entschuldigung
-            // 
-            this.Entschuldigung.Controls.Add(this.groupBox12);
-            this.Entschuldigung.Location = new System.Drawing.Point(4, 25);
-            this.Entschuldigung.Name = "Entschuldigung";
-            this.Entschuldigung.Size = new System.Drawing.Size(527, 334);
-            this.Entschuldigung.TabIndex = 6;
-            this.Entschuldigung.Text = "Entschuldigung";
-            this.Entschuldigung.UseVisualStyleBackColor = true;
-            // 
-            // groupBox12
-            // 
-            this.groupBox12.Controls.Add(this.krank);
-            this.groupBox12.Controls.Add(this.Grund);
-            this.groupBox12.Controls.Add(this.groupBox14);
-            this.groupBox12.Controls.Add(this.groupBox13);
-            this.groupBox12.Location = new System.Drawing.Point(3, 4);
-            this.groupBox12.Name = "groupBox12";
-            this.groupBox12.Size = new System.Drawing.Size(521, 327);
-            this.groupBox12.TabIndex = 0;
-            this.groupBox12.TabStop = false;
-            this.groupBox12.Text = "Entschuldigung";
-            // 
-            // groupBox13
-            // 
-            this.groupBox13.Controls.Add(this.krankmorgen);
-            this.groupBox13.Controls.Add(this.krankheute);
-            this.groupBox13.Location = new System.Drawing.Point(7, 20);
-            this.groupBox13.Name = "groupBox13";
-            this.groupBox13.Size = new System.Drawing.Size(508, 35);
-            this.groupBox13.TabIndex = 0;
-            this.groupBox13.TabStop = false;
-            this.groupBox13.Text = "Ab";
-            // 
-            // krankheute
-            // 
-            this.krankheute.AutoSize = true;
-            this.krankheute.Location = new System.Drawing.Point(8, 12);
-            this.krankheute.Name = "krankheute";
-            this.krankheute.Size = new System.Drawing.Size(60, 17);
-            this.krankheute.TabIndex = 0;
-            this.krankheute.TabStop = true;
-            this.krankheute.Text = "{heute}";
-            this.krankheute.UseVisualStyleBackColor = true;
-            // 
-            // krankmorgen
-            // 
-            this.krankmorgen.AutoSize = true;
-            this.krankmorgen.Location = new System.Drawing.Point(245, 12);
-            this.krankmorgen.Name = "krankmorgen";
-            this.krankmorgen.Size = new System.Drawing.Size(68, 17);
-            this.krankmorgen.TabIndex = 1;
-            this.krankmorgen.TabStop = true;
-            this.krankmorgen.Text = "{morgen}";
-            this.krankmorgen.UseVisualStyleBackColor = true;
-            // 
-            // groupBox14
-            // 
-            this.groupBox14.Controls.Add(this.dauerkrank);
-            this.groupBox14.Location = new System.Drawing.Point(7, 61);
-            this.groupBox14.Name = "groupBox14";
-            this.groupBox14.Size = new System.Drawing.Size(508, 55);
-            this.groupBox14.TabIndex = 2;
-            this.groupBox14.TabStop = false;
-            this.groupBox14.Text = "Dauer";
-            // 
-            // dauerkrank
-            // 
-            this.dauerkrank.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.dauerkrank.FormattingEnabled = true;
-            this.dauerkrank.Items.AddRange(new object[] {
-            "1 Tag",
-            "2 Tage",
-            "3 Tage"});
-            this.dauerkrank.Location = new System.Drawing.Point(8, 19);
-            this.dauerkrank.Name = "dauerkrank";
-            this.dauerkrank.Size = new System.Drawing.Size(494, 21);
-            this.dauerkrank.TabIndex = 0;
-            // 
-            // Grund
-            // 
-            this.Grund.Controls.Add(this.grundtxt);
-            this.Grund.Location = new System.Drawing.Point(7, 122);
-            this.Grund.Name = "Grund";
-            this.Grund.Size = new System.Drawing.Size(508, 54);
-            this.Grund.TabIndex = 3;
-            this.Grund.TabStop = false;
-            this.Grund.Text = "Grund";
-            // 
-            // grundtxt
-            // 
-            this.grundtxt.Location = new System.Drawing.Point(8, 20);
-            this.grundtxt.Name = "grundtxt";
-            this.grundtxt.Size = new System.Drawing.Size(494, 20);
-            this.grundtxt.TabIndex = 0;
-            // 
-            // krank
-            // 
-            this.krank.Location = new System.Drawing.Point(429, 182);
-            this.krank.Name = "krank";
-            this.krank.Size = new System.Drawing.Size(86, 23);
-            this.krank.TabIndex = 4;
-            this.krank.Text = "Krankmelden";
-            this.krank.UseVisualStyleBackColor = true;
-            this.krank.Click += new System.EventHandler(this.krank_Click);
-            // 
-            // fehlzeitview
-            // 
-            this.fehlzeitview.BackColor = System.Drawing.SystemColors.Control;
-            this.fehlzeitview.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.fehlzeitview.Enabled = false;
-            this.fehlzeitview.FormattingEnabled = true;
-            this.fehlzeitview.Location = new System.Drawing.Point(16, 91);
-            this.fehlzeitview.Name = "fehlzeitview";
-            this.fehlzeitview.Size = new System.Drawing.Size(498, 234);
-            this.fehlzeitview.TabIndex = 10;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(13, 70);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(50, 13);
-            this.label11.TabIndex = 11;
-            this.label11.Text = "Details:";
-            // 
             // Form1
             // 
             this.AcceptButton = this.login;
@@ -1238,16 +1238,16 @@
             this.Fehlzeiten.PerformLayout();
             this.Einstellungen.ResumeLayout(false);
             this.Einstellungen.PerformLayout();
+            this.Entschuldigung.ResumeLayout(false);
+            this.groupBox12.ResumeLayout(false);
+            this.Grund.ResumeLayout(false);
+            this.Grund.PerformLayout();
+            this.groupBox14.ResumeLayout(false);
+            this.groupBox13.ResumeLayout(false);
+            this.groupBox13.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
-            this.Entschuldigung.ResumeLayout(false);
-            this.groupBox12.ResumeLayout(false);
-            this.groupBox13.ResumeLayout(false);
-            this.groupBox13.PerformLayout();
-            this.groupBox14.ResumeLayout(false);
-            this.Grund.ResumeLayout(false);
-            this.Grund.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
