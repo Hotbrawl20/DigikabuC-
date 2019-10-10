@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.kl = new System.Windows.Forms.Label();
@@ -98,6 +99,8 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.Einstellungen = new System.Windows.Forms.TabPage();
+            this.savemails = new System.Windows.Forms.Button();
+            this.label10 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.email2 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -114,6 +117,18 @@
             this.Credits = new System.Windows.Forms.Button();
             this.Time = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.Entschuldigung = new System.Windows.Forms.TabPage();
+            this.groupBox12 = new System.Windows.Forms.GroupBox();
+            this.groupBox13 = new System.Windows.Forms.GroupBox();
+            this.krankheute = new System.Windows.Forms.RadioButton();
+            this.krankmorgen = new System.Windows.Forms.RadioButton();
+            this.groupBox14 = new System.Windows.Forms.GroupBox();
+            this.dauerkrank = new System.Windows.Forms.ComboBox();
+            this.Grund = new System.Windows.Forms.GroupBox();
+            this.grundtxt = new System.Windows.Forms.TextBox();
+            this.krank = new System.Windows.Forms.Button();
+            this.fehlzeitview = new System.Windows.Forms.ListBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.Termine.SuspendLayout();
@@ -143,6 +158,11 @@
             this.Einstellungen.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.Entschuldigung.SuspendLayout();
+            this.groupBox12.SuspendLayout();
+            this.groupBox13.SuspendLayout();
+            this.groupBox14.SuspendLayout();
+            this.Grund.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -170,6 +190,7 @@
             "Stundenplan",
             "Schulaufgabenplan",
             "Speiseplan",
+            "Entschuldigung",
             "Fehlzeiten",
             "Einstellungen"});
             this.comboBox1.Location = new System.Drawing.Point(11, 41);
@@ -228,6 +249,7 @@
             this.tabControl1.Controls.Add(this.Essensplan);
             this.tabControl1.Controls.Add(this.Fehlzeiten);
             this.tabControl1.Controls.Add(this.Einstellungen);
+            this.tabControl1.Controls.Add(this.Entschuldigung);
             this.tabControl1.ImeMode = System.Windows.Forms.ImeMode.Off;
             this.tabControl1.Location = new System.Drawing.Point(11, 41);
             this.tabControl1.Name = "tabControl1";
@@ -803,6 +825,8 @@
             // 
             // Fehlzeiten
             // 
+            this.Fehlzeiten.Controls.Add(this.label11);
+            this.Fehlzeiten.Controls.Add(this.fehlzeitview);
             this.Fehlzeiten.Controls.Add(this.stundenw);
             this.Fehlzeiten.Controls.Add(this.ganz);
             this.Fehlzeiten.Controls.Add(this.label7);
@@ -854,6 +878,8 @@
             // 
             // Einstellungen
             // 
+            this.Einstellungen.Controls.Add(this.savemails);
+            this.Einstellungen.Controls.Add(this.label10);
             this.Einstellungen.Controls.Add(this.label4);
             this.Einstellungen.Controls.Add(this.email2);
             this.Einstellungen.Controls.Add(this.label3);
@@ -865,19 +891,38 @@
             this.Einstellungen.Text = "tabPage1";
             this.Einstellungen.UseVisualStyleBackColor = true;
             // 
+            // savemails
+            // 
+            this.savemails.Location = new System.Drawing.Point(446, 305);
+            this.savemails.Name = "savemails";
+            this.savemails.Size = new System.Drawing.Size(75, 23);
+            this.savemails.TabIndex = 5;
+            this.savemails.Text = "Speichern";
+            this.savemails.UseVisualStyleBackColor = true;
+            this.savemails.Click += new System.EventHandler(this.savemails_Click);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(42, 7);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(435, 39);
+            this.label10.TabIndex = 4;
+            this.label10.Text = resources.GetString("label10.Text");
+            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(16, 58);
+            this.label4.Location = new System.Drawing.Point(16, 105);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(48, 13);
+            this.label4.Size = new System.Drawing.Size(92, 13);
             this.label4.TabIndex = 3;
-            this.label4.Text = "2. E-Mail";
+            this.label4.Text = "2. E-Mail Adresse:";
             // 
             // email2
             // 
-            this.email2.Enabled = false;
-            this.email2.Location = new System.Drawing.Point(16, 77);
+            this.email2.Location = new System.Drawing.Point(16, 124);
             this.email2.Name = "email2";
             this.email2.Size = new System.Drawing.Size(381, 20);
             this.email2.TabIndex = 2;
@@ -885,16 +930,15 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(16, 9);
+            this.label3.Location = new System.Drawing.Point(16, 56);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(48, 13);
+            this.label3.Size = new System.Drawing.Size(92, 13);
             this.label3.TabIndex = 1;
-            this.label3.Text = "1. E-Mail";
+            this.label3.Text = "1. E-Mail Adresse:";
             // 
             // email1
             // 
-            this.email1.Enabled = false;
-            this.email1.Location = new System.Drawing.Point(16, 28);
+            this.email1.Location = new System.Drawing.Point(16, 75);
             this.email1.Name = "email1";
             this.email1.Size = new System.Drawing.Size(381, 20);
             this.email1.TabIndex = 0;
@@ -1008,8 +1052,136 @@
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.Timer1_Tick);
             // 
+            // Entschuldigung
+            // 
+            this.Entschuldigung.Controls.Add(this.groupBox12);
+            this.Entschuldigung.Location = new System.Drawing.Point(4, 25);
+            this.Entschuldigung.Name = "Entschuldigung";
+            this.Entschuldigung.Size = new System.Drawing.Size(527, 334);
+            this.Entschuldigung.TabIndex = 6;
+            this.Entschuldigung.Text = "Entschuldigung";
+            this.Entschuldigung.UseVisualStyleBackColor = true;
+            // 
+            // groupBox12
+            // 
+            this.groupBox12.Controls.Add(this.krank);
+            this.groupBox12.Controls.Add(this.Grund);
+            this.groupBox12.Controls.Add(this.groupBox14);
+            this.groupBox12.Controls.Add(this.groupBox13);
+            this.groupBox12.Location = new System.Drawing.Point(3, 4);
+            this.groupBox12.Name = "groupBox12";
+            this.groupBox12.Size = new System.Drawing.Size(521, 327);
+            this.groupBox12.TabIndex = 0;
+            this.groupBox12.TabStop = false;
+            this.groupBox12.Text = "Entschuldigung";
+            // 
+            // groupBox13
+            // 
+            this.groupBox13.Controls.Add(this.krankmorgen);
+            this.groupBox13.Controls.Add(this.krankheute);
+            this.groupBox13.Location = new System.Drawing.Point(7, 20);
+            this.groupBox13.Name = "groupBox13";
+            this.groupBox13.Size = new System.Drawing.Size(508, 35);
+            this.groupBox13.TabIndex = 0;
+            this.groupBox13.TabStop = false;
+            this.groupBox13.Text = "Ab";
+            // 
+            // krankheute
+            // 
+            this.krankheute.AutoSize = true;
+            this.krankheute.Location = new System.Drawing.Point(8, 12);
+            this.krankheute.Name = "krankheute";
+            this.krankheute.Size = new System.Drawing.Size(60, 17);
+            this.krankheute.TabIndex = 0;
+            this.krankheute.TabStop = true;
+            this.krankheute.Text = "{heute}";
+            this.krankheute.UseVisualStyleBackColor = true;
+            // 
+            // krankmorgen
+            // 
+            this.krankmorgen.AutoSize = true;
+            this.krankmorgen.Location = new System.Drawing.Point(245, 12);
+            this.krankmorgen.Name = "krankmorgen";
+            this.krankmorgen.Size = new System.Drawing.Size(68, 17);
+            this.krankmorgen.TabIndex = 1;
+            this.krankmorgen.TabStop = true;
+            this.krankmorgen.Text = "{morgen}";
+            this.krankmorgen.UseVisualStyleBackColor = true;
+            // 
+            // groupBox14
+            // 
+            this.groupBox14.Controls.Add(this.dauerkrank);
+            this.groupBox14.Location = new System.Drawing.Point(7, 61);
+            this.groupBox14.Name = "groupBox14";
+            this.groupBox14.Size = new System.Drawing.Size(508, 55);
+            this.groupBox14.TabIndex = 2;
+            this.groupBox14.TabStop = false;
+            this.groupBox14.Text = "Dauer";
+            // 
+            // dauerkrank
+            // 
+            this.dauerkrank.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.dauerkrank.FormattingEnabled = true;
+            this.dauerkrank.Items.AddRange(new object[] {
+            "1 Tag",
+            "2 Tage",
+            "3 Tage"});
+            this.dauerkrank.Location = new System.Drawing.Point(8, 19);
+            this.dauerkrank.Name = "dauerkrank";
+            this.dauerkrank.Size = new System.Drawing.Size(494, 21);
+            this.dauerkrank.TabIndex = 0;
+            // 
+            // Grund
+            // 
+            this.Grund.Controls.Add(this.grundtxt);
+            this.Grund.Location = new System.Drawing.Point(7, 122);
+            this.Grund.Name = "Grund";
+            this.Grund.Size = new System.Drawing.Size(508, 54);
+            this.Grund.TabIndex = 3;
+            this.Grund.TabStop = false;
+            this.Grund.Text = "Grund";
+            // 
+            // grundtxt
+            // 
+            this.grundtxt.Location = new System.Drawing.Point(8, 20);
+            this.grundtxt.Name = "grundtxt";
+            this.grundtxt.Size = new System.Drawing.Size(494, 20);
+            this.grundtxt.TabIndex = 0;
+            // 
+            // krank
+            // 
+            this.krank.Location = new System.Drawing.Point(429, 182);
+            this.krank.Name = "krank";
+            this.krank.Size = new System.Drawing.Size(86, 23);
+            this.krank.TabIndex = 4;
+            this.krank.Text = "Krankmelden";
+            this.krank.UseVisualStyleBackColor = true;
+            this.krank.Click += new System.EventHandler(this.krank_Click);
+            // 
+            // fehlzeitview
+            // 
+            this.fehlzeitview.BackColor = System.Drawing.SystemColors.Control;
+            this.fehlzeitview.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.fehlzeitview.Enabled = false;
+            this.fehlzeitview.FormattingEnabled = true;
+            this.fehlzeitview.Location = new System.Drawing.Point(16, 91);
+            this.fehlzeitview.Name = "fehlzeitview";
+            this.fehlzeitview.Size = new System.Drawing.Size(498, 234);
+            this.fehlzeitview.TabIndex = 10;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(13, 70);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(50, 13);
+            this.label11.TabIndex = 11;
+            this.label11.Text = "Details:";
+            // 
             // Form1
             // 
+            this.AcceptButton = this.login;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(718, 413);
@@ -1069,6 +1241,13 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
+            this.Entschuldigung.ResumeLayout(false);
+            this.groupBox12.ResumeLayout(false);
+            this.groupBox13.ResumeLayout(false);
+            this.groupBox13.PerformLayout();
+            this.groupBox14.ResumeLayout(false);
+            this.Grund.ResumeLayout(false);
+            this.Grund.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1173,6 +1352,20 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.GroupBox groupBox11;
         private System.Windows.Forms.ListBox sp;
+        private System.Windows.Forms.Button savemails;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TabPage Entschuldigung;
+        private System.Windows.Forms.GroupBox groupBox12;
+        private System.Windows.Forms.GroupBox groupBox13;
+        private System.Windows.Forms.RadioButton krankmorgen;
+        private System.Windows.Forms.RadioButton krankheute;
+        private System.Windows.Forms.Button krank;
+        private System.Windows.Forms.GroupBox Grund;
+        private System.Windows.Forms.TextBox grundtxt;
+        private System.Windows.Forms.GroupBox groupBox14;
+        private System.Windows.Forms.ComboBox dauerkrank;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.ListBox fehlzeitview;
     }
 }
 

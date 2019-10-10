@@ -9,6 +9,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Net.Http;
+using System.IO;
+using System.Net;
 
 namespace Digikabu
 {
@@ -24,9 +26,33 @@ namespace Digikabu
     
     public partial class Form1 : Form
     {
+        /*public static CookieContainer Cookies
+        {
+            get { return static HttpClientHandler.CookieContainer; }
+            set { HttpClientHandler.CookieContainer = value; }
+        }
         private string[] stundenArray = new string[10];
-        private static readonly HttpClient client = new HttpClient();
-        bool loggedin = false;
+        
+       static HttpClientHandler a = new HttpClientHandler
+                            {
+                                AllowAutoRedirect = false,
+                                UseCookies = true,
+                                CookieContainer = new CookieContainer()
+                            };
+    private static readonly HttpClient client = new HttpClient(a);*/
+       /* HttpClientHandler  a = new HttpClientHandler
+                            {
+                                AllowAutoRedirect = true,
+                                UseCookies = true,
+                                CookieContainer = new CookieContainer()
+                            };*/
+        HttpClient client = new HttpClient(new HttpClientHandler
+        {
+            AllowAutoRedirect = true,
+            UseCookies = true,
+            CookieContainer = new CookieContainer()
+        });
+    bool loggedin = false;
         public Form1()
         {
             InitializeComponent();
@@ -80,6 +106,7 @@ namespace Digikabu
 
         private async void Button2_Click(object sender, EventArgs e) //Logout Button
         { //toDo relogin falls ausgelogt
+            relog();
             var values = new Dictionary<string, string>
             {
 
@@ -298,6 +325,7 @@ namespace Digikabu
         }
         private async void FehlzeitenFenster()
         {
+            fehlzeitview.Items.Clear();
             //nach folgenden string wird für ganztags gesucht
             //style = "color:blue;font-weight:bold"
             var response = await client.GetAsync("https://digikabu.de/Fehlzeiten");
@@ -319,6 +347,169 @@ namespace Digikabu
             string[] sweise1 = stunden[1].Split('>');//nummer = 2, {nummer}</span
             string[] sweise = sweise1[1].Split('<');
             stundenw.Text = sweise[0];
+            fehlzeitview.Items.Add("Datum\t Von\tBis\tBemerkung\tEntschuldigt");
+
+            bool rtb = false;
+            bool tr = false;
+            bool endtr = false;
+            bool dat = false;
+            bool v = false;
+            bool b = false;
+            bool bemerk = false;
+            bool a = false;
+            bool ent = false;
+            bool done = false;
+            string datum = "";
+            string von = "";
+            string bis = "";
+            string bemerkung = "";
+            string entschuldigt = "";
+            byte i = 0;
+
+            foreach (string s in responsestring.Split('<'))
+            {
+                done = true;
+                if (s.Contains("table class") && done == true)
+                {
+                    rtb = true;
+                    done = false;
+                }
+                if (rtb == true)
+                {
+                    if (s.Contains("tbody") && !s.Contains("/") && done == true)
+                    {
+                        tr = true;
+                        done = false;
+                    }
+                    if (tr == true)
+                    {
+                        if (s.Contains("tr") && !s.Contains("/") && done == true)
+                        {
+                            tr = false;
+                            dat = true;
+                            done = false;
+                        }
+                    }
+                    if (dat == true && done == true)
+                    {
+
+                        datum = s.Trim().Split('>')[1];
+
+                        dat = false;
+                        v = true;
+                        done = false;
+                    }
+                    if (v == true && done == true)
+                    {
+                        if (i == 0)
+                        {
+                            i++;
+                        }
+                        else
+                        {
+                            von = s.Trim().Split('>')[1];
+
+                            v = false;
+                            b = true;
+                            i = 0;
+                        }
+                        done = false;
+                    }
+                    if (b == true && done == true)
+                    {
+                        if (i == 0)
+                        {
+                            i++;
+                        }
+                        else
+                        {
+                            bis = s.Trim().Split('>')[1];
+
+                            b = false;
+                            bemerk = true;
+                            i = 0;
+                        }
+                        done = false;
+                    }
+                    if (bemerk == true && done == true)
+                    {
+
+                        if (i == 0)
+                        {
+                            i++;
+                        }
+                        else
+                        {
+                            bemerkung = s.Trim().Split('>')[1];
+
+                            bemerk = false;
+                            a = true;
+                            i = 0;
+                        }
+                        done = false;
+                    }
+                    if (a == true && done == true)
+                    {
+                        if (i == 0)
+                        {
+                            i++;
+                        }
+                        else
+                        {
+
+                            a = false;
+                            ent = true;
+                            i = 0;
+                        }
+                        done = false;
+                    }
+                    if (ent == true && done == true)
+                    {
+                        if (i < 2)
+                        {
+                            i++;
+                        }
+                        else
+                        {
+                            if (s.Contains("glyphicon"))
+                            {
+                                entschuldigt = "Ja";
+
+                            }
+                            else
+                            {
+                                entschuldigt = "Nein";
+
+                            }
+
+                            ent = false;
+                            endtr = true;
+                            i = 0;
+                        }
+
+
+
+
+                        done = false;
+                    }
+                    if (endtr == true && done == true)
+                    {
+                        done = false;
+
+                        endtr = false;
+                        tr = true;
+                        fehlzeitview.Items.Add(datum + "\t " + von + "\t" + bis + "\t" + bemerkung + "\t\t" + entschuldigt);
+
+
+                        datum = "";
+                        von = "";
+                        bis = "";
+                        bemerkung = "";
+                        entschuldigt = "";
+                    }
+                }
+
+            }
         }
         private async void Einstellung()
         {
@@ -595,14 +786,14 @@ namespace Digikabu
         private void ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             relog();
-            if (comboBox1.SelectedIndex == 0)
+            if (comboBox1.SelectedIndex == 0) // termin + heutiger stundenplan
             {
                 tabControl1.SelectedIndex = 0;
                 TerminFenster();
                 listBox1.Items.Clear();
                 gettermine();
             }
-            if (comboBox1.SelectedIndex == 1)
+            if (comboBox1.SelectedIndex == 1) // Stundenplan (Woche)
             {
                 tabControl1.SelectedIndex = 1;
                 montaglist.Items.Clear();
@@ -612,7 +803,7 @@ namespace Digikabu
                 freitaglist.Items.Clear();
                 StundenplanFenster();
             }
-            if (comboBox1.SelectedIndex == 2)
+            if (comboBox1.SelectedIndex == 2) //schulaufgabenplan
             {
                 tabControl1.SelectedIndex = 2;
                 listBox2.Items.Clear();
@@ -623,12 +814,17 @@ namespace Digikabu
                 tabControl1.SelectedIndex = 3;
                 GetEssensplan();
             }
-            if (comboBox1.SelectedIndex == 4)
+            if(comboBox1.SelectedIndex == 4) //Entschuldigng
+            {
+                tabControl1.SelectedIndex = 6;
+                Krankheit();
+            }
+            if (comboBox1.SelectedIndex == 5) // Fehlzeiten
             {
                 tabControl1.SelectedIndex = 4;
                 FehlzeitenFenster();
             }
-            if (comboBox1.SelectedIndex == 5)
+            if (comboBox1.SelectedIndex == 6) //einstellung
             {
                 tabControl1.SelectedIndex = 5;
                 Einstellung();
@@ -695,7 +891,7 @@ namespace Digikabu
         //Diese Methode wird ausgeführt, wenn eine neue Stunde anfängt
         private void Stunde_Tick(object sender, EventArgs e)
         {
-            string uStart = "20:42", ausgabe = string.Empty; // Unterrichtsstart, Ausgabe
+            string uStart = "8:30", ausgabe = string.Empty; // Unterrichtsstart, Ausgabe
             int stdDauer = 45, pDauer = 15, pPos = 2, stdAnz = 10; // Stundendauer, Pausendauer, Pausenposition(nach 2. Std), Maximale Stundenanz (für uns 10)
 
             DateTime jetzt = /*Convert.ToDateTime("8:30")*/DateTime.Now;
@@ -874,6 +1070,236 @@ namespace Digikabu
 
         private void Timer1_Tick(object sender, EventArgs e)
         {
+        }
+
+        private void savemails_Click(object sender, EventArgs e)
+        {
+            string emailuno = string.Empty;
+            string emaildos = string.Empty;
+            if (!email1.Text.Equals(""))
+            {
+                if (!email1.Text.Contains("@"))
+                {
+                    MessageBox.Show("Bitte eine gütlige E-Mail eingeben (1. Email)");
+                }
+                else
+                {
+                    emailuno = email1.Text;
+                    if (!email2.Text.Equals(""))
+                    {
+                        if (!email2.Text.Contains("@"))
+                        {
+                            MessageBox.Show("Bitte eine gütlige E-Mail eingeben (2. Email)");
+                        }
+                        else
+                        {
+                            emaildos = email2.Text;
+                        }
+                    }
+                    else
+                    {
+                        emaildos = "";
+                    }
+                    
+                }
+            }
+            else
+            {
+                emailuno = "";
+                if (!email2.Text.Equals(""))
+                {
+                    if (!email2.Text.Contains("@"))
+                    {
+                        MessageBox.Show("Bitte eine gütlige E-Mail eingeben (2. Email)");
+                    }
+                    else
+                    {
+                        emaildos = email2.Text;
+                    }
+
+                }
+                else
+                {
+                    emaildos = "";
+                }
+            }
+            emailssenden(emailuno, emaildos);
+        }
+        private async void emailssenden(string email1, string email2)
+        {
+            // Logt den nutzer wieder ein, das kein fehler ensteht da dieser ncihtmehr eingeloggt ist
+            relog();
+            // Token bekommen
+            var response = await client.GetAsync("https://digikabu.de/Einstellungen"); //Holt die daten der Einstellungen website
+            var responsestring = await response.Content.ReadAsStringAsync(); // List die Daten Asynchron als string ein
+            var split = responsestring.Split('<'); //splitet die daten zum zeichen < das wir es einfacher haben den token zu finden
+            foreach (string s in split)
+            {
+                string a = s; //sonst gitbs probleme ka warum
+                if (a.Contains("__RequestVerificationToken")) //sobald true, haben wir den token
+                {
+                    string[] tokenget = a.Split('\"'); // Nach " splitten das wir bei den 5ten array element den token haben
+
+                    // Email speichern
+
+                    var values = new Dictionary<string, string> 
+                     {
+                        { "email1", email1 }, //erste email
+                        { "email2", email2 }, // zweite email
+                        { "__RequestVerificationToken", tokenget[5] } //token den wir gerade geholt haben
+                    };
+                    FormUrlEncodedContent content = new FormUrlEncodedContent(values); //dies wird benötigt um die Daten als application/x-www-form-urlencoded abgesendet wird
+                    response = await client.PostAsync("https://digikabu.de/Einstellungen", content); //Post request erstellen
+                    MessageBox.Show("Daten erfolgreich übermittelt, Tab wird neugeladen", "Erfolg");
+                    Einstellung();
+                }
+            }
+        }
+        private async void Krankheit()
+        {
+            relog();
+            var response = await client.GetAsync("https://digikabu.de/Entschuldigung");
+            var responsestring = await response.Content.ReadAsStringAsync();
+            var spilt = responsestring.Split('<');
+            foreach(string s in spilt)
+            {
+                if (s.Contains("value=\"h\""))
+                {
+                    var a = s;
+                    foreach(string s2 in a.Split('\"'))
+                    {
+                        if (s2.Contains("disabled"))
+                        {
+                            krankheute.Enabled = false;
+                            krankmorgen.Checked = true;
+                        }
+                        else
+                        {
+                            krankheute.Enabled = true;
+                            krankheute.Checked = true;
+                        }
+                    }
+
+                }
+                else if (s.Contains("value=\"m\""))
+                {
+                    var a = s;
+                    foreach (string s2 in a.Split('\"'))
+                    {
+                        if (s2.Contains("disabled"))
+                        {
+                            krankmorgen.Enabled = false;
+                        }
+                        else
+                        {
+                            krankmorgen.Enabled = true;
+                        }
+                    }
+
+                }
+            }
+            DateTime heute = DateTime.Now;
+
+            krankheute.Text = "heute (" + setWochentag(heute) + " " + heute.Date.ToString("dd.MM.yyyy")+")";
+            heute = heute.AddDays(1);
+            krankmorgen.Text = "morgen (" + setWochentag(heute) + " " + heute.Date.ToString("dd.MM.yyyy") + " )";
+        }
+        private string setWochentag(DateTime heute)
+        {
+            string rw = "";
+            switch (heute.DayOfWeek)
+            {
+                case DayOfWeek.Monday:
+                    rw = "Montag";
+                    break;
+                case DayOfWeek.Tuesday:
+                    rw = "Dienstag";
+                    break;
+                case DayOfWeek.Wednesday:
+                    rw = "Mittwoch";
+                    break;
+                case DayOfWeek.Thursday:
+                    rw = "Donnerstag";
+                    break;
+                case DayOfWeek.Friday:
+                    rw = "Freitag";
+                    break;
+                case DayOfWeek.Saturday:
+                    rw = "Samstag";
+                    break;
+                case DayOfWeek.Sunday:
+                    rw = "Sonntag";
+                    break;
+            }
+            return rw;
+        }
+        private async void krank_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Dieses Feature ist ungetestet, es kann möglicherweiße nicht funktionieren");
+            if (alleschecked())
+            {
+                var response = await client.GetAsync("https://digikabu.de/Entschuldigung");
+                var responsestring = await response.Content.ReadAsStringAsync(); // List die Daten Asynchron als string ein
+                var split = responsestring.Split('<'); //splitet die daten zum zeichen < das wir es einfacher haben den token zu finden
+                foreach (string s in split)
+                {
+                    string a = s;
+                    if (a.Contains("__RequestVerificationToken"))
+                    {
+                        string[] tokenget = a.Split('\"');
+                        string ab = "";
+                        string dauer = "";
+                        //Daten bekommen
+                        if(krankheute.Checked == true)
+                        {
+                            ab = "h";
+                        }
+                        else
+                        {
+                            ab = "m";
+                        }
+                        switch (dauerkrank.SelectedIndex)
+                        {
+                            case 0:
+                                dauer = "1";
+                                break;
+                            case 1:
+                                dauer = "2";
+                                break;
+                            case 2:
+                                dauer = "3";
+                                break;
+                        }
+       
+                        var values = new Dictionary<string, string>
+                     {
+                        { "Ab", ab },
+                        { "Dauer", dauer },
+                        { "Grund", grundtxt.Text },
+                        { "__RequestVerificationToken", tokenget[5] } 
+                    };
+                        FormUrlEncodedContent content = new FormUrlEncodedContent(values); 
+                        response = await client.PostAsync("https://digikabu.de/Entschuldigung", content); 
+                        MessageBox.Show("Daten erfolgreich übermittelt, Tab wird neugeladen", "Erfolg");
+                    }
+                }
+            }
+
+        }
+        private bool alleschecked()
+        {
+            bool rw = true;
+            if(dauerkrank.SelectedIndex != 0 || dauerkrank.SelectedIndex != 1 || dauerkrank.SelectedIndex != 2)
+            {
+                MessageBox.Show("Bitte Dauer angeben!");
+                rw = false;
+            }
+            if(grundtxt.Text == "")
+            {
+                MessageBox.Show("Bitte Grund angeben!");
+                rw = false;
+            }
+            return rw;
         }
     }
     
